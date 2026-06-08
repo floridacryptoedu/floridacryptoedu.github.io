@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida Crypto Edu | Crypto Security & Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ms-blue: #0078d4;
+    --ms-blue-dark: #005a9e;
+    --ms-blue-light: #50aeff;
+    --ms-navy: #003366;
+    --ms-surface: #f3f3f3;
+    --ms-surface-alt: #fafafa;
+    --ms-white: #ffffff;
+    --ms-text: #1a1a1a;
+    --ms-text-secondary: #444444;
+    --ms-text-muted: #767676;
+    --ms-border: #e0e0e0;
+    --ms-green: #107c10;
+    --ms-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --ms-shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+    --radius: 4px;
+    --radius-lg: 8px;
+    --font: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font); color:var(--ms-text); background:var(--ms-white); line-height:1.6; overflow-x:hidden; }
+
+  /* TOP BAR */
+  .topbar { background:var(--ms-navy); color:white; padding:7px 0; font-size:13px; text-align:center; }
+  .topbar a { color:#90c8f6; text-decoration:none; }
+  .topbar a:hover { text-decoration:underline; }
+
+  /* NAV */
+  nav { background:var(--ms-white); border-bottom:1px solid var(--ms-border); position:sticky; top:0; z-index:1000; box-shadow:var(--ms-shadow); }
+  .nav-inner { max-width:1200px; margin:0 auto; padding:0 32px; display:flex; align-items:center; height:60px; }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:40px; }
+  .nav-logo-icon { height:40px; width:auto; display:block; }
+  .nav-logo-text { display:none; }
+  .nav-links { display:flex; align-items:center; gap:2px; flex:1; list-style:none; }
+  .nav-links a { text-decoration:none; color:var(--ms-text-secondary); font-size:14px; font-weight:500; padding:8px 14px; border-radius:var(--radius); transition:background 0.15s,color 0.15s; display:block; }
+  .nav-links a:hover { background:var(--ms-surface); color:var(--ms-blue); }
+  .nav-cta { margin-left:auto; display:flex; align-items:center; gap:12px; }
+  .nav-phone { font-size:13px; font-weight:600; color:var(--ms-text-secondary); }
+  .btn-primary { background:var(--ms-blue); color:white; border:none; padding:9px 20px; border-radius:var(--radius); font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s,box-shadow 0.15s; font-family:var(--font); }
+  .btn-primary:hover { background:var(--ms-blue-dark); box-shadow:0 4px 12px rgba(0,120,212,0.3); }
+  .btn-secondary { background:transparent; color:var(--ms-blue); border:1.5px solid var(--ms-blue); padding:9px 20px; border-radius:var(--radius); font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s,color 0.15s; font-family:var(--font); }
+  .btn-secondary:hover { background:var(--ms-blue); color:white; }
+  .btn-large { padding:14px 32px; font-size:16px; }
+
+  /* HERO */
+  .hero { background:linear-gradient(135deg,#001f4d 0%,#003580 40%,#0055a5 70%,#0078d4 100%); color:white; padding:80px 32px; position:relative; overflow:hidden; }
+  .hero-grid { position:absolute; top:0; left:0; right:0; bottom:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
+  .hero-inner { max-width:1200px; margin:0 auto; position:relative; display:grid; grid-template-columns:1fr 460px; gap:64px; align-items:center; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#90c8f6; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:24px; }
+  .hero-badge::before { content:''; width:8px; height:8px; background:#50aeff; border-radius:50%; display:block; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .hero h1 { font-size:clamp(32px,4vw,52px); font-weight:800; line-height:1.15; letter-spacing:-1.5px; margin-bottom:20px; }
+  .hero h1 em { font-style:normal; color:#90c8f6; }
+  .hero-sub { font-size:18px; color:rgba(255,255,255,0.8); max-width:520px; margin-bottom:36px; line-height:1.7; }
+  .hero-actions { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .hero-actions .btn-primary { background:white; color:var(--ms-blue); font-size:15px; padding:13px 28px; }
+  .hero-actions .btn-primary:hover { background:#e8f3ff; }
+  .hero-actions .btn-ghost { color:white; text-decoration:none; font-size:14px; font-weight:600; display:flex; align-items:center; gap:6px; opacity:0.9; }
+  .hero-actions .btn-ghost:hover { opacity:1; text-decoration:underline; }
+  .hero-stats { display:flex; gap:32px; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.15); }
+  .hero-stat-num { font-size:28px; font-weight:800; color:white; letter-spacing:-1px; }
+  .hero-stat-label { font-size:12px; color:rgba(255,255,255,0.6); font-weight:500; margin-top:2px; }
+  .hero-card { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:32px; backdrop-filter:blur(10px); }
+  .hero-card-title { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#90c8f6; margin-bottom:20px; }
+  .hero-card-photo { width:100%; border-radius:8px; overflow:hidden; margin-bottom:20px; aspect-ratio:4/3; }
+  .hero-card-photo img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+  .hero-card-name { font-size:20px; font-weight:700; color:white; margin-bottom:6px; }
+  .hero-card-role { font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:20px; line-height:1.5; }
+  .hero-card-cta { display:flex; align-items:center; gap:10px; background:var(--ms-blue); color:white; text-decoration:none; padding:12px 18px; border-radius:var(--radius); font-size:14px; font-weight:600; transition:background 0.15s; justify-content:center; }
+  .hero-card-cta:hover { background:var(--ms-blue-dark); }
+
+  /* TRUST BAR */
+  .trust-bar { background:var(--ms-surface); border-bottom:1px solid var(--ms-border); padding:18px 32px; }
+  .trust-bar-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  .trust-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--ms-text-muted); }
+  .trust-items { display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+  .trust-item { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--ms-text-secondary); }
+
+  /* SECTIONS */
+  section { padding:80px 32px; }
+  .section-inner { max-width:1200px; margin:0 auto; }
+  .section-header { margin-bottom:48px; }
+  .section-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--ms-blue); margin-bottom:12px; }
+  .section-title { font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-1px; line-height:1.2; color:var(--ms-text); margin-bottom:16px; }
+  .section-sub { font-size:17px; color:var(--ms-text-secondary); max-width:600px; line-height:1.7; }
+
+  /* STAT ALERT */
+  .stat-alert { background:linear-gradient(135deg,#001f4d,#003580); color:white; padding:64px 32px; }
+  .stat-alert-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .stat-big { font-size:clamp(52px,7vw,88px); font-weight:900; letter-spacing:-3px; color:#50aeff; line-height:1; margin-bottom:12px; }
+  .stat-big-label { font-size:18px; font-weight:600; color:white; margin-bottom:8px; }
+  .stat-big-source { font-size:12px; color:rgba(255,255,255,0.5); font-style:italic; }
+  .stat-right-title { font-size:24px; font-weight:700; margin-bottom:16px; line-height:1.3; }
+  .stat-right-body { font-size:16px; color:rgba(255,255,255,0.75); line-height:1.7; margin-bottom:24px; }
+
+  /* SERVICES */
+  .services { background:var(--ms-surface-alt); }
+  .travel-note { background:#fff8e1; border:1px solid #f0c040; border-radius:var(--radius); padding:14px 20px; margin-bottom:28px; font-size:14px; color:#7a5c00; display:flex; align-items:center; gap:10px; }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .service-card { background:var(--ms-white); border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:32px; transition:box-shadow 0.2s,transform 0.2s,border-color 0.2s; position:relative; overflow:hidden; }
+  .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--ms-blue); opacity:0; transition:opacity 0.2s; }
+  .service-card:hover { box-shadow:var(--ms-shadow-hover); transform:translateY(-3px); border-color:#c0d9f0; }
+  .service-card:hover::before { opacity:1; }
+  .service-card.featured { border-color:var(--ms-blue); background:linear-gradient(160deg,#f0f7ff 0%,#ffffff 100%); }
+  .service-card.featured::before { opacity:1; }
+  .service-badge { display:inline-block; background:var(--ms-blue); color:white; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 10px; border-radius:2px; margin-bottom:16px; }
+  .service-badge.gold { background:#8B6914; }
+  .service-icon { width:48px; height:48px; background:#e8f3ff; border-radius:var(--radius); display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-size:22px; }
+  .service-title { font-size:20px; font-weight:800; margin-bottom:6px; color:var(--ms-text); }
+  .service-price { font-size:28px; font-weight:800; color:var(--ms-blue); margin-bottom:12px; letter-spacing:-1px; }
+  .service-price span { font-size:13px; font-weight:400; color:var(--ms-text-muted); letter-spacing:0; }
+  .service-desc { font-size:14px; color:var(--ms-text-secondary); line-height:1.7; margin-bottom:20px; }
+  .service-features { list-style:none; margin-bottom:24px; }
+  .service-features li { font-size:13px; color:var(--ms-text-secondary); padding:5px 0; display:flex; align-items:flex-start; gap:8px; }
+  .service-features li::before { content:'✓'; color:var(--ms-green); font-weight:700; font-size:12px; margin-top:2px; flex-shrink:0; }
+  .service-link { font-size:13px; font-weight:600; color:var(--ms-blue); text-decoration:none; display:flex; align-items:center; gap:4px; margin-top:12px; }
+  .service-link:hover { text-decoration:underline; }
+
+  /* STEPS */
+  .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; position:relative; }
+  .steps-grid::before { content:''; position:absolute; top:36px; left:calc(16.66% + 20px); right:calc(16.66% + 20px); height:2px; background:linear-gradient(90deg,var(--ms-blue) 0%,#50aeff 100%); z-index:0; }
+  .step { padding:0 24px; text-align:center; position:relative; z-index:1; }
+  .step-num { width:72px; height:72px; background:var(--ms-blue); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; margin:0 auto 20px; border:4px solid white; box-shadow:0 0 0 2px var(--ms-blue); }
+  .step-title { font-size:17px; font-weight:700; margin-bottom:10px; }
+  .step-desc { font-size:14px; color:var(--ms-text-secondary); line-height:1.6; }
+
+  /* WHY */
+  .why { background:var(--ms-surface); }
+  .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .why-list { list-style:none; display:flex; flex-direction:column; gap:20px; }
+  .why-item { display:flex; gap:16px; align-items:flex-start; background:white; border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:20px; transition:box-shadow 0.15s; }
+  .why-item:hover { box-shadow:var(--ms-shadow); }
+  .why-icon { width:40px; height:40px; background:#e8f3ff; border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .why-title { font-size:15px; font-weight:700; margin-bottom:4px; }
+  .why-desc { font-size:13px; color:var(--ms-text-secondary); line-height:1.6; }
+  .why-visual { background:linear-gradient(135deg,#001f4d,#0055a5); border-radius:12px; padding:40px; color:white; }
+  .why-visual-title { font-size:22px; font-weight:800; margin-bottom:8px; line-height:1.3; }
+  .why-visual-sub { font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:32px; }
+  .why-visual-items { display:flex; flex-direction:column; gap:14px; }
+  .why-visual-item { display:flex; align-items:flex-start; gap:12px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); padding:14px 16px; }
+  .why-visual-item-icon { font-size:20px; width:36px; text-align:center; flex-shrink:0; }
+  .why-visual-item-text { font-size:13px; font-weight:600; }
+
+  /* MASTER KEY */
+  .mkb { background:linear-gradient(160deg,#f0f7ff 0%,white 100%); border-top:1px solid #d0e8f8; border-bottom:1px solid #d0e8f8; }
+  .mkb-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .mkb-visual { background:linear-gradient(135deg,#0078d4,#003580); border-radius:12px; padding:48px 40px; color:white; text-align:center; position:relative; overflow:hidden; }
+  .mkb-icon { font-size:64px; margin-bottom:16px; display:block; }
+  .mkb-visual-title { font-size:26px; font-weight:800; margin-bottom:8px; letter-spacing:-0.5px; }
+  .mkb-visual-sub { font-size:14px; color:rgba(255,255,255,0.75); margin-bottom:24px; }
+  .mkb-visual-features { display:flex; flex-direction:column; gap:10px; text-align:left; }
+  .mkb-feature { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); border-radius:var(--radius); padding:10px 14px; font-size:13px; font-weight:500; }
+  .mkb-content h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:16px; }
+  .mkb-content p { font-size:16px; color:var(--ms-text-secondary); line-height:1.7; margin-bottom:16px; }
+
+  /* PLAYBOOK */
+  .playbook { background:var(--ms-blue); color:white; padding:64px 32px; }
+  .playbook-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 400px; gap:64px; align-items:center; }
+  .playbook h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:12px; }
+  .playbook p { font-size:16px; color:rgba(255,255,255,0.85); line-height:1.6; }
+  .playbook-form { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:var(--radius-lg); padding:28px; }
+  .playbook-form label { font-size:13px; font-weight:600; display:block; margin-bottom:8px; }
+  .playbook-form input { width:100%; padding:11px 14px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); color:white; font-size:14px; font-family:var(--font); margin-bottom:14px; outline:none; }
+  .playbook-form input::placeholder { color:rgba(255,255,255,0.5); }
+  .playbook-form input:focus { border-color:rgba(255,255,255,0.7); }
+  .playbook-form button { width:100%; padding:12px; background:white; color:var(--ms-blue); border:none; border-radius:var(--radius); font-size:15px; font-weight:700; cursor:pointer; font-family:var(--font); transition:background 0.15s; }
+  .playbook-form button:hover { background:#e8f3ff; }
+  .playbook-form small { font-size:11px; color:rgba(255,255,255,0.5); margin-top:8px; display:block; }
+
+  /* FOOTER */
+  footer { background:#0d0d0d; color:rgba(255,255,255,0.8); padding:56px 32px 32px; }
+  .footer-inner { max-width:1200px; margin:0 auto; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:32px; }
+  .footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; text-decoration:none; }
+  .footer-logo-box { width:32px; height:32px; background:var(--ms-blue); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:white; }
+  .footer-logo-name { font-size:14px; font-weight:700; color:white; }
+  .footer-brand-desc { font-size:13px; line-height:1.7; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+  .footer-socials { display:flex; gap:10px; }
+  .footer-social { width:34px; height:34px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; transition:background 0.15s,color 0.15s; }
+  .footer-social:hover { background:var(--ms-blue); color:white; border-color:var(--ms-blue); }
+  .footer-col-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:13px; transition:color 0.15s; }
+  .footer-links a:hover { color:white; }
+  .footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.35); flex-wrap:wrap; gap:12px; }
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:rgba(255,255,255,0.6); }
+  .footer-bottom-links { display:flex; gap:20px; }
+
+  @media(max-width:900px){
+    .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid{grid-template-columns:1fr}
+    .hero-card{display:none}
+    .services-grid{grid-template-columns:1fr}
+    .steps-grid{grid-template-columns:1fr}
+    .steps-grid::before{display:none}
+    .footer-top{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    section{padding:56px 20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  📍 Serving Fort Myers, Naples & Cape Coral &nbsp;|&nbsp; <a href="tel:12399901615">📞 Call or Text: 1-239-990-1615</a> &nbsp;|&nbsp; <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">Book a Free Consultation →</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img class="nav-logo-icon" src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#master-key">Master Key Binder</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">239-990-1615</span>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Southwest Florida's #1 Crypto Security Concierge</div>
+      <h1>Protect Your<br><em>Crypto Wealth</em><br>Like a Fortress</h1>
+      <p class="hero-sub">Florida Crypto Edu provides hands-on, in-person crypto security setup and education for Fort Myers and Naples residents. We don't sell coins — we protect the ones you already own.</p>
+      <div class="hero-actions">
+        <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Book Free 15-Min Call</a>
+        <a href="#services" class="btn-ghost">See Our Services →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">$11.36B</div>
+          <div class="hero-stat-label">Crypto fraud losses in 2025</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Hands-on, in-person service</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">A–Z</div>
+          <div class="hero-stat-label">Full security setup included</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Your Security Concierge</div>
+      <div class="hero-card-photo">
+        <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/5f4a88c9-b32c-4328-8197-b200bfe4de8e/db552176-b6b3-4540-ba33-22ee41b10672.jpg" alt="Crypto Josh" />
+      </div>
+      <div class="hero-card-name">Joshua — "Crypto Josh"</div>
+      <div class="hero-card-role">Fort Myers & Naples' only hands-on crypto security concierge. In-office, virtual, or in-home visits available.</div>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="hero-card-cta">📅 Schedule Your Free Call</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted across Southwest Florida</span>
+    <div class="trust-items">
+      <div class="trust-item">✅ Fort Myers Residents</div>
+      <div class="trust-item">✅ Naples HNW Clients</div>
+      <div class="trust-item">✅ In-Person & Virtual Sessions</div>
+      <div class="trust-item">✅ Master Key Binder System</div>
+      <div class="trust-item">✅ Legacy Estate Planning</div>
+    </div>
+  </div>
+</div>
+
+<section class="stat-alert">
+  <div class="stat-alert-inner">
+    <div>
+      <div class="stat-big">$11.36B</div>
+      <div class="stat-big-label">in cryptocurrency fraud losses in 2025</div>
+      <div class="stat-big-source">— FBI 2025 Internet Crime Report</div>
+    </div>
+    <div>
+      <div class="stat-right-title">Hackers Target Crypto Because It's the Future of Money</div>
+      <p class="stat-right-body">As blockchain technology becomes the infrastructure of the global financial system, the gap between opportunity and security has never been wider. The question isn't whether you should be in crypto — it's whether your assets are properly protected.</p>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Get Protected Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY LOSS STAT SECTION -->
+<section style="background:#0a0a0a;color:white;padding:72px 32px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#50aeff;margin-bottom:12px;">The Hidden Crypto Crisis Nobody Talks About</div>
+      <h2 style="font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;">It's Not Just Hackers You Need to Worry About</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;line-height:1.7;">Every day, families across America lose access to their loved one's crypto forever — not because of hackers, but because no one wrote anything down.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
+      <div style="background:linear-gradient(135deg,rgba(0,120,212,0.15),rgba(0,53,128,0.3));border:1px solid rgba(80,174,255,0.2);border-radius:12px;padding:48px 40px;text-align:center;">
+        <div style="font-size:clamp(56px,8vw,96px);font-weight:900;letter-spacing:-4px;color:#50aeff;line-height:1;margin-bottom:16px;">$300B+</div>
+        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:10px;">in crypto permanently lost forever</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Because investors had emergencies, passed away, or became incapacitated — and their families had <em>no idea</em> how to access or recover their digital assets.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:28px;flex-shrink:0;">😰</div>
+          <div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Medical Emergency</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">An investor is incapacitated. Their family needs access to funds. Without documentation, the crypto is completely unreachable — potentially forever.</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:28px;flex-shrink:0;">💔</div>
+          <div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Unexpected Passing</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">A spouse or child inherits everything — except the crypto. With no seed phrases, no wallet access, and no instructions, it's gone. Permanently.</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:28px;flex-shrink:0;">🔑</div>
+          <div>
+            <div style="font-size:15px;font-weight:700;color:#50aeff;margin-bottom:6px;">The Complete Guardian Solution</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Our legacy planning package documents everything your family needs — step by step — so your wealth is never lost, no matter what life brings.</div>
+          </div>
+        </div>
+        <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" style="display:inline-block;background:#0078d4;color:white;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:15px;font-weight:700;text-align:center;transition:background 0.15s;" onmouseover="this.style.background='#005a9e'" onmouseout="this.style.background='#0078d4'">Protect Your Family with Complete Guardian →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Service Packages</div>
+      <h2 class="section-title">Choose Your Level of Protection</h2>
+      <p class="section-sub">Every package includes our signature Master Key Binder system and hands-on guided implementation. No tech experience required.</p>
+    </div>
+    <div class="travel-note">
+      🚗 <div><strong>In-Home Concierge Available:</strong> We travel to you anywhere in Southwest Florida — Fort Myers, Naples, Cape Coral & surrounding areas. A flat <strong>$150 travel fee</strong> applies to all in-home visits.</div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔐</div>
+        <div class="service-title">Entry Vault</div>
+        <div class="service-price">$399 <span>/ one-time</span></div>
+        <p class="service-desc">The perfect starting point — one exchange, one wallet, and your complete Master Key Binder all set up correctly from day one.</p>
+        <ul class="service-features">
+          <li>1 crypto exchange setup</li>
+          <li>1 hardware wallet setup</li>
+          <li>Dedicated crypto email setup</li>
+          <li>Master Key Binder included</li>
+          <li>Full organization & documentation session</li>
+        </ul>
+        <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:1.%20The%20Entry%20Vault%20Selection" class="btn-secondary" style="display:inline-block;width:100%;text-align:center;">Book Entry Vault</a>
+        <a href="#contact" class="service-link">Questions? Contact Us →</a>
+      </div>
+      <div class="service-card featured">
+        <div class="service-badge">Most Popular</div>
+        <div class="service-icon">🛡️</div>
+        <div class="service-title">Asset Essentials</div>
+        <div class="service-price">$549 <span>/ one-time</span></div>
+        <p class="service-desc">Everything in Entry Vault, plus a second exchange, crypto debit card, and tax tracking — a complete financial setup for the serious crypto holder.</p>
+        <ul class="service-features">
+          <li>Everything in Entry Vault</li>
+          <li>2nd crypto exchange setup</li>
+          <li>Crypto debit card setup</li>
+          <li>Tax tracking app setup within exchange</li>
+          <li>Master Key Binder included</li>
+        </ul>
+        <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:2.%20Asset%20Essentials%20Selection" class="btn-primary" style="display:inline-block;width:100%;text-align:center;">Book Asset Essentials</a>
+        <a href="#contact" class="service-link">Questions? Contact Us →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-badge gold">Premium</div>
+        <div class="service-icon">🏰</div>
+        <div class="service-title">Complete Guardian</div>
+        <div class="service-price">$749 <span>/ one-time</span></div>
+        <p class="service-desc">The ultimate package — everything in Asset Essentials plus full legacy planning so your heirs can access and manage your digital assets when it matters most.</p>
+        <ul class="service-features">
+          <li>Everything in Asset Essentials</li>
+          <li>Legacy & heir access planning</li>
+          <li>Estate documentation for digital assets</li>
+          <li>Family education session</li>
+          <li>Master Key Binder included</li>
+        </ul>
+        <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" class="btn-secondary" style="display:inline-block;width:100%;text-align:center;">Book Complete Guardian</a>
+        <a href="#contact" class="service-link">Questions? Contact Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" style="background:white;">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">Three Simple Steps to Total Security</h2>
+      <p class="section-sub" style="margin:0 auto;">No tech experience required. We handle everything, step by step, at your pace.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">The Strategy Call</div>
+        <p class="step-desc">Book a free 15-minute call to discuss your current setup, your goals, and which security package is the right fit for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Reserve Your Session</div>
+        <p class="step-desc">Choose a date and format — in-office at our Downtown Fort Myers location, a virtual session, or an in-home concierge visit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Guided Implementation</div>
+        <p class="step-desc">We sit down together and build your complete crypto fortress — every step done properly, every detail locked down, your legacy secured.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Start with a Free 15-Min Call</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why-us">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="section-eyebrow">Why Florida Crypto Edu</div>
+        <h2 class="section-title">We Don't Just Set Up Wallets.<br>We Build Legacies.</h2>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-icon">🤝</div>
+            <div>
+              <div class="why-title">Hands-On, In-Person</div>
+              <div class="why-desc">We sit down with you — in your home, our office, or virtually — and do it together. No confusing instructions, no going it alone.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">🔒</div>
+            <div>
+              <div class="why-title">Security-First, Always</div>
+              <div class="why-desc">We never give investment advice. Our entire focus is protecting what you already have from hacks, scams, and human error.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">📋</div>
+            <div>
+              <div class="why-title">Legacy Planning Included</div>
+              <div class="why-desc">Your digital assets need to be accessible to your heirs. We document everything so your family is protected when it matters most.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">📍</div>
+            <div>
+              <div class="why-title">Local Southwest Florida Expert</div>
+              <div class="why-desc">Based in Downtown Fort Myers, serving clients from Cape Coral to Naples. We're your neighbors — not a faceless online service.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-visual">
+        <div class="why-visual-title">The Internet of Value Is Here</div>
+        <div class="why-visual-sub">Industry leaders are already moving trillions onto the blockchain. Are you protected?</div>
+        <div class="why-visual-items">
+          <div class="why-visual-item">
+            <div class="why-visual-item-icon">🏦</div>
+            <div class="why-visual-item-text">Larry Fink (BlackRock): Every asset tokenized by 2030 — $16T+ in value</div>
+          </div>
+          <div class="why-visual-item">
+            <div class="why-visual-item-icon">💳</div>
+            <div class="why-visual-item-text">JPMorgan Chase: Moving real money on blockchain every single day</div>
+          </div>
+          <div class="why-visual-item">
+            <div class="why-visual-item-icon">🏛️</div>
+            <div class="why-visual-item-text">Rosie Rios (Former US Treasurer): "Follow the money" into the Internet of Value</div>
+          </div>
+          <div class="why-visual-item">
+            <div class="why-visual-item-icon">📈</div>
+            <div class="why-visual-item-text">Early adopters who secure now will be positioned for the next decade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mkb" id="master-key">
+  <div class="section-inner">
+    <div class="mkb-inner">
+      <div class="mkb-visual">
+        <span class="mkb-icon">📗</span>
+        <div class="mkb-visual-title">The Master Key Binder</div>
+        <div class="mkb-visual-sub">Your complete crypto security command center — organized, protected, and ready for any situation.</div>
+        <div class="mkb-visual-features">
+          <div class="mkb-feature">🔑 Secure seed phrase storage system</div>
+          <div class="mkb-feature">📧 Protected crypto email documentation</div>
+          <div class="mkb-feature">🔐 Hardware wallet setup records</div>
+          <div class="mkb-feature">📜 Legacy & heir access plan</div>
+          <div class="mkb-feature">🛡️ Step-by-step recovery procedures</div>
+        </div>
+      </div>
+      <div class="mkb-content">
+        <div class="section-eyebrow">Included with Every Package</div>
+        <h2>Your Physical Crypto Fortress in a Binder</h2>
+        <p>Every single client receives our signature <strong>Master Key Binder</strong> — a comprehensive, physical security system that organizes every critical piece of your crypto setup in one secure, protected place.</p>
+        <p>Unlike digital-only solutions, the Master Key Binder ensures your assets are accessible, organized, and protected even if every device you own is compromised. It's also your family's roadmap when they need it most.</p>
+        <p>Included with every package — Entry Vault, Asset Essentials, and Complete Guardian.</p>
+        <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Get Your Master Key Binder</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="playbook" id="playbook">
+  <div class="playbook-inner">
+    <div>
+      <h2>Get the Free Crypto Playbook</h2>
+      <p>The 101 Guide to the Future of Money — what blockchain really is, why it matters, and the first steps to protecting your piece of it. Instant access, no fluff.</p>
+    </div>
+    <div class="playbook-form">
+      <label>Your Email Address</label>
+      <input type="email" placeholder="you@email.com">
+      <button type="button">Send Me The Free Playbook →</button>
+      <small>🔒 We respect your privacy. No spam, ever.</small>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="footer-logo">
+          <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+        </a>
+        <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
+        <div class="footer-socials">
+          <a href="http://www.linkedin.com/in/floridacryptoedu" class="footer-social" title="LinkedIn">in</a>
+          <a href="https://www.youtube.com/@CryptoJoshFL" class="footer-social" title="YouTube">▶</a>
+          <a href="https://www.facebook.com/profile.php?id=61589618993895" class="footer-social" title="Facebook">f</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Entry Vault — $399</a></li>
+          <li><a href="#services">Asset Essentials — $549</a></li>
+          <li><a href="#services">Complete Guardian — $749</a></li>
+          <li><a href="#master-key">Master Key Binder</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="https://www.floridacryptoedu.com/about">About Josh</a></li>
+          <li><a href="https://www.floridacryptoedu.com/our-services">All Services</a></li>
+          <li><a href="https://www.floridacryptoedu.com/contact">Contact</a></li>
+          <li><a href="https://www.floridacryptoedu.com/disclaimer">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:12399901615">📞 1-239-990-1615</a></li>
+          <li><a href="mailto:joshua@floridacryptoedu.com">✉ joshua@floridacryptoedu.com</a></li>
+          <li><a href="mailto:admin@floridacryptoedu.com">✉ admin@floridacryptoedu.com</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;">📍 Downtown Fort Myers, FL</li>
+          <li><a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">📅 Book Free Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Florida Crypto Edu LLC. All rights reserved. Not a financial advisor. <a href="https://www.floridacryptoedu.com/disclaimer">Disclaimer</a></div>
+      <div class="footer-bottom-links">
+        <a href="https://www.floridacryptoedu.com/privacy-policy">Privacy Policy</a>
+        <a href="https://www.floridacryptoedu.com/terms-of-service">Terms of Service</a>
+        <a href="https://www.floridacryptoedu.com/return-policy-page">Return Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.service-card, .step, .why-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
