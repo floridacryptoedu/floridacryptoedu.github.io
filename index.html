@@ -207,6 +207,9 @@
     .footer-top{grid-template-columns:1fr 1fr}
     .nav-links{display:none}
     section{padding:56px 20px}
+    .legacy-grid{grid-template-columns:1fr !important}
+    .legacy-stat-box{padding:32px 24px !important}
+    .legacy-cta-btn{width:100%;text-align:center;}
   }
 </style>
 </head>
@@ -309,8 +312,8 @@
       <h2 style="font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;">It's Not Just Hackers You Need to Worry About</h2>
       <p style="font-size:17px;color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;line-height:1.7;">Every day, families across America lose access to their loved one's crypto forever — not because of hackers, but because no one wrote anything down.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
-      <div style="background:linear-gradient(135deg,rgba(0,120,212,0.15),rgba(0,53,128,0.3));border:1px solid rgba(80,174,255,0.2);border-radius:12px;padding:48px 40px;text-align:center;">
+    <div class="legacy-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
+      <div class="legacy-stat-box" style="background:linear-gradient(135deg,rgba(0,120,212,0.15),rgba(0,53,128,0.3));border:1px solid rgba(80,174,255,0.2);border-radius:12px;padding:48px 40px;text-align:center;">
         <div style="font-size:clamp(56px,8vw,96px);font-weight:900;letter-spacing:-4px;color:#50aeff;line-height:1;margin-bottom:16px;">$300B+</div>
         <div style="font-size:18px;font-weight:700;color:white;margin-bottom:10px;">in crypto permanently lost forever</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Because investors had emergencies, passed away, or became incapacitated — and their families had <em>no idea</em> how to access or recover their digital assets.</div>
@@ -337,7 +340,7 @@
             <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Our legacy planning package documents everything your family needs — step by step — so your wealth is never lost, no matter what life brings.</div>
           </div>
         </div>
-        <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" style="display:inline-block;background:#0078d4;color:white;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:15px;font-weight:700;text-align:center;transition:background 0.15s;" onmouseover="this.style.background='#005a9e'" onmouseout="this.style.background='#0078d4'">Protect Your Family with Complete Guardian →</a>
+        <a class="legacy-cta-btn" href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" style="display:inline-block;background:#0078d4;color:white;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:15px;font-weight:700;text-align:center;transition:background 0.15s;" onmouseover="this.style.background='#005a9e'" onmouseout="this.style.background='#0078d4'">Protect Your Family with Complete Guardian →</a>
       </div>
     </div>
   </div>
@@ -545,7 +548,7 @@
     <div class="footer-top">
       <div>
         <a href="#" class="footer-logo">
-          <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+          <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" style="height:36px;width:auto;border-radius:4px;" />
         </a>
         <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
         <div class="footer-socials">
