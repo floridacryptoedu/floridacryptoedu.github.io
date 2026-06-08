@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Josh | Florida Crypto Edu</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ms-blue:#0078d4; --ms-blue-dark:#005a9e; --ms-navy:#003366; --ms-surface:#f3f3f3; --ms-white:#ffffff; --ms-text:#1a1a1a; --ms-text-secondary:#444444; --ms-text-muted:#767676; --ms-border:#e0e0e0; --ms-green:#107c10; --ms-shadow:0 2px 8px rgba(0,0,0,0.08); --ms-shadow-hover:0 8px 24px rgba(0,0,0,0.12); --radius:4px; --radius-lg:8px; --font:'Plus Jakarta Sans','Segoe UI',sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font); color:var(--ms-text); background:var(--ms-white); line-height:1.6; overflow-x:hidden; }
+  .topbar { background:var(--ms-navy); color:white; padding:7px 0; font-size:13px; text-align:center; }
+  .topbar a { color:#90c8f6; text-decoration:none; }
+  .topbar a:hover { text-decoration:underline; }
+  nav { background:var(--ms-white); border-bottom:1px solid var(--ms-border); position:sticky; top:0; z-index:1000; box-shadow:var(--ms-shadow); }
+  .nav-inner { max-width:1200px; margin:0 auto; padding:0 32px; display:flex; align-items:center; height:60px; }
+  .nav-logo { display:flex; align-items:center; text-decoration:none; margin-right:40px; }
+  .nav-logo img { height:40px; width:auto; }
+  .nav-links { display:flex; align-items:center; gap:2px; flex:1; list-style:none; }
+  .nav-links a { text-decoration:none; color:var(--ms-text-secondary); font-size:14px; font-weight:500; padding:8px 14px; border-radius:var(--radius); transition:background 0.15s,color 0.15s; display:block; }
+  .nav-links a:hover, .nav-links a.active { background:var(--ms-surface); color:var(--ms-blue); }
+  .nav-cta { margin-left:auto; display:flex; align-items:center; gap:12px; }
+  .nav-phone { font-size:13px; font-weight:600; color:var(--ms-text-secondary); }
+  .btn-primary { background:var(--ms-blue); color:white; border:none; padding:9px 20px; border-radius:var(--radius); font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; font-family:var(--font); }
+  .btn-primary:hover { background:var(--ms-blue-dark); box-shadow:0 4px 12px rgba(0,120,212,0.3); }
+  .btn-large { padding:14px 32px; font-size:16px; }
+  section { padding:80px 32px; }
+  .section-inner { max-width:1200px; margin:0 auto; }
+  .section-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--ms-blue); margin-bottom:12px; }
+  .section-title { font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-1px; line-height:1.2; color:var(--ms-text); margin-bottom:16px; }
+
+  .page-hero { background:linear-gradient(135deg,#001f4d 0%,#003580 50%,#0078d4 100%); color:white; padding:80px 32px; position:relative; overflow:hidden; }
+  .page-hero-grid { position:absolute; top:0;left:0;right:0;bottom:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
+  .page-hero-inner { max-width:1200px; margin:0 auto; position:relative; display:grid; grid-template-columns:1fr 380px; gap:64px; align-items:center; }
+  .page-hero-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#90c8f6; margin-bottom:12px; }
+  .page-hero h1 { font-size:clamp(32px,4vw,50px); font-weight:800; letter-spacing:-1.5px; line-height:1.15; margin-bottom:16px; }
+  .page-hero h1 em { font-style:normal; color:#90c8f6; }
+  .page-hero p { font-size:17px; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:28px; }
+  .hero-photo-card { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:12px; overflow:hidden; }
+  .hero-photo-card img { width:100%; display:block; }
+  .hero-photo-caption { padding:16px 20px; }
+  .hero-photo-name { font-size:17px; font-weight:700; color:white; margin-bottom:4px; }
+  .hero-photo-role { font-size:12px; color:rgba(255,255,255,0.6); }
+
+  .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .story-photo { border-radius:12px; overflow:hidden; box-shadow:var(--ms-shadow-hover); }
+  .story-photo img { width:100%; display:block; }
+  .story-content h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:20px; line-height:1.2; }
+  .story-content p { font-size:16px; color:var(--ms-text-secondary); line-height:1.8; margin-bottom:16px; }
+  .faith-block { background:linear-gradient(135deg,#f0f7ff,#ffffff); border:1px solid #d0e8f8; border-left:4px solid var(--ms-blue); border-radius:var(--radius-lg); padding:24px 28px; margin:24px 0; }
+  .faith-block p { font-size:15px; color:var(--ms-text); line-height:1.8; font-style:italic; margin:0; }
+
+  .pillars { background:var(--ms-surface); }
+  .pillars-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
+  .pillar-card { background:white; border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:32px; position:relative; overflow:hidden; transition:box-shadow 0.2s,transform 0.2s; }
+  .pillar-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:var(--ms-blue); }
+  .pillar-card:hover { box-shadow:var(--ms-shadow-hover); transform:translateY(-2px); }
+  .pillar-num { font-size:52px; font-weight:900; color:#e8f3ff; letter-spacing:-2px; line-height:1; margin-bottom:12px; }
+  .pillar-title { font-size:20px; font-weight:800; margin-bottom:12px; }
+  .pillar-desc { font-size:15px; color:var(--ms-text-secondary); line-height:1.7; }
+
+  .mission-section { background:linear-gradient(135deg,#001f4d,#003580); color:white; padding:72px 32px; text-align:center; }
+  .mission-section h2 { font-size:clamp(28px,4vw,42px); font-weight:800; letter-spacing:-1px; margin-bottom:20px; }
+  .mission-section p { font-size:17px; color:rgba(255,255,255,0.8); line-height:1.8; margin-bottom:16px; max-width:760px; margin-left:auto; margin-right:auto; }
+  .mission-section strong { color:#90c8f6; }
+
+  .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+  .value-card { background:white; border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:28px; text-align:center; transition:box-shadow 0.2s,transform 0.2s; }
+  .value-card:hover { box-shadow:var(--ms-shadow-hover); transform:translateY(-3px); }
+  .value-icon { font-size:36px; margin-bottom:16px; display:block; }
+  .value-title { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .value-desc { font-size:14px; color:var(--ms-text-secondary); line-height:1.6; }
+
+  .cta-banner { background:var(--ms-blue); color:white; padding:64px 32px; text-align:center; }
+  .cta-banner h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:12px; }
+  .cta-banner p { font-size:17px; color:rgba(255,255,255,0.85); margin-bottom:28px; max-width:560px; margin-left:auto; margin-right:auto; }
+  .cta-banner .btn-white { background:white; color:var(--ms-blue); border:none; padding:14px 32px; border-radius:var(--radius); font-size:16px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; font-family:var(--font); }
+  .cta-banner .btn-white:hover { background:#e8f3ff; }
+
+  footer { background:#0d0d0d; color:rgba(255,255,255,0.8); padding:56px 32px 32px; }
+  .footer-inner { max-width:1200px; margin:0 auto; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:32px; }
+  .footer-logo { display:flex; margin-bottom:16px; text-decoration:none; }
+  .footer-logo img { height:36px; width:auto; filter:brightness(0) invert(1); }
+  .footer-brand-desc { font-size:13px; line-height:1.7; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+  .footer-socials { display:flex; gap:10px; }
+  .footer-social { width:34px; height:34px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; transition:background 0.15s; }
+  .footer-social:hover { background:var(--ms-blue); color:white; border-color:var(--ms-blue); }
+  .footer-col-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:13px; transition:color 0.15s; }
+  .footer-links a:hover { color:white; }
+  .footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.35); flex-wrap:wrap; gap:12px; }
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom-links { display:flex; gap:20px; }
+  @media(max-width:900px){ .nav-links{display:none} .page-hero-inner,.story-grid,.pillars-grid,.values-grid{grid-template-columns:1fr} .footer-top{grid-template-columns:1fr 1fr} section{padding:56px 20px} }
+</style>
+</head>
+<body>
+
+<div class="topbar">📍 Serving Fort Myers, Naples & Cape Coral &nbsp;|&nbsp; <a href="tel:12399901615">📞 Call or Text: 1-239-990-1615</a> &nbsp;|&nbsp; <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">Book a Free Consultation →</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.floridacryptoedu.com" class="nav-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+    <ul class="nav-links">
+      <li><a href="https://www.floridacryptoedu.com">Home</a></li>
+      <li><a href="#" class="active">About</a></li>
+      <li><a href="https://www.floridacryptoedu.com/our-services">Our Services</a></li>
+      <li><a href="https://www.floridacryptoedu.com/contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">239-990-1615</span>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div>
+      <div class="page-hero-eyebrow">About Florida Crypto Edu</div>
+      <h1>Meet <em>Joshua & Guia</em><br>Your Crypto Security<br>Neighbors</h1>
+      <p>We're not a faceless tech company. We're your Fort Myers neighbors — rooted in faith, integrity, and a genuine calling to protect our community from the rising tide of crypto crime.</p>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Book a Free 15-Min Call</a>
+    </div>
+    <div class="hero-photo-card">
+      <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/5da1dfdf-a56d-4155-af07-0fdf6c621f83/Joshua+and+Gina.jpg" alt="Joshua and Guia Williams" />
+      <div class="hero-photo-caption">
+        <div class="hero-photo-name">Joshua & Guia Marisa Williams</div>
+        <div class="hero-photo-role">Founders, Florida Crypto Edu LLC — Downtown Fort Myers, FL</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="background:white;">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-photo">
+        <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/5f4a88c9-b32c-4328-8197-b200bfe4de8e/db552176-b6b3-4540-ba33-22ee41b10672.jpg" alt="Crypto Josh" />
+      </div>
+      <div class="story-content">
+        <div class="section-eyebrow">Our Story</div>
+        <h2>A Human Handshake in a Digital World</h2>
+        <p>In an era of faceless AI, automated bots, and rising digital scams, we believe that true security starts with a human handshake and a foundation of absolute integrity.</p>
+        <p>Joshua began deep-diving into cryptocurrency in 2019, recognizing blockchain as the "Internet of Value." Having vacationed in Fort Myers for over 28 years before officially making it home in 2023, we felt a calling to use our knowledge to protect our local community.</p>
+        <p>We saw too many people left vulnerable to the pitfalls of this new frontier — and knew we had to help.</p>
+        <div class="faith-block">
+          <p>"Our work is rooted in our belief in God and the fundamental calling to love and treat our neighbors as ourselves. In the complex world of cryptocurrency, we believe that stewardship and honesty are paramount. We don't just see clients — we see our neighbors."</p>
+        </div>
+        <p>Guia Marisa and Joshua work as a team to ensure every neighbor feels empowered, not overwhelmed. Our mission is to replace the lack of trust in current systems with total confidence in your own digital sovereignty.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="section-inner">
+    <div class="section-eyebrow">Our Approach</div>
+    <h2 class="section-title">The Two Pillars of Protection</h2>
+    <p style="font-size:17px;color:var(--ms-text-secondary);max-width:600px;line-height:1.7;">We believe you cannot secure what you do not fully understand. Every client goes through both pillars.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">The Digital Security Audit</div>
+        <p class="pillar-desc">Before we build, we assess. We conduct a professional audit of your current digital footprint to identify vulnerabilities, hidden risks, and security gaps. Knowing exactly where you stand is the only way to move forward with confidence.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">The Master Key System</div>
+        <p class="pillar-desc">Once the audit is complete, we implement your defense. Our signature Master Key system — a physical security binder — keeps your most vital information organized and offline. While your assets move at the speed of the internet, your protection remains as solid as a locked safe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission-section">
+  <div class="section-eyebrow" style="color:#90c8f6;">Our Mission</div>
+  <h2>We Are Here to Help You Own Your Future. Securely.</h2>
+  <p>Whether you are just starting or securing a legacy for the next generation, our heart's desire is that through education and God's values, <strong>no neighbor of ours will ever experience the pain of being digitally robbed or scammed.</strong></p>
+  <p>We don't just configure wallets — we build bridges for your family's future. We ensure your digital legacy is not only secure today but also meticulously organized and accessible for your heirs tomorrow.</p>
+</section>
+
+<section style="background:white;">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:0;">
+      <div class="section-eyebrow">What We Stand For</div>
+      <h2 class="section-title">Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><span class="value-icon">🙏</span><div class="value-title">Faith & Integrity</div><p class="value-desc">Our work is rooted in our belief in God and the calling to serve our neighbors with honesty, transparency, and care.</p></div>
+      <div class="value-card"><span class="value-icon">🤝</span><div class="value-title">Human Connection</div><p class="value-desc">In a world of bots and automation, we provide real, in-person guidance from real people who genuinely care about your outcome.</p></div>
+      <div class="value-card"><span class="value-icon">🛡️</span><div class="value-title">Security First</div><p class="value-desc">We never give investment advice. Our sole mission is protecting what you already have from hacks, scams, and human error.</p></div>
+      <div class="value-card"><span class="value-icon">📋</span><div class="value-title">Legacy Planning</div><p class="value-desc">Your digital wealth should survive you. We make sure your heirs can access everything they need, exactly when they need it.</p></div>
+      <div class="value-card"><span class="value-icon">📍</span><div class="value-title">Local Community</div><p class="value-desc">We're your Fort Myers and Naples neighbors. We're here for the long haul — not a faceless online service that disappears.</p></div>
+      <div class="value-card"><span class="value-icon">🎓</span><div class="value-title">Education Empowers</div><p class="value-desc">We teach, not just set up. Every client leaves knowing how to maintain their own security long after our session ends.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Ready to Meet Us In Person?</h2>
+  <p>Book a free 15-minute strategy call and let's figure out exactly how to protect your crypto wealth together.</p>
+  <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-white">Book Your Free Call Today</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="https://www.floridacryptoedu.com" class="footer-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+        <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
+        <div class="footer-socials">
+          <a href="http://www.linkedin.com/in/floridacryptoedu" class="footer-social">in</a>
+          <a href="https://www.youtube.com/@CryptoJoshFL" class="footer-social">▶</a>
+          <a href="https://www.facebook.com/profile.php?id=61589618993895" class="footer-social">f</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="https://www.floridacryptoedu.com/our-services">Entry Vault — $399</a></li>
+          <li><a href="https://www.floridacryptoedu.com/our-services">Asset Essentials — $549</a></li>
+          <li><a href="https://www.floridacryptoedu.com/our-services">Complete Guardian — $749</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="https://www.floridacryptoedu.com/about">About Josh & Guia</a></li>
+          <li><a href="https://www.floridacryptoedu.com/our-services">All Services</a></li>
+          <li><a href="https://www.floridacryptoedu.com/contact">Contact</a></li>
+          <li><a href="https://www.floridacryptoedu.com/disclaimer">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:12399901615">📞 1-239-990-1615</a></li>
+          <li><a href="mailto:joshua@floridacryptoedu.com">✉ joshua@floridacryptoedu.com</a></li>
+          <li><a href="mailto:admin@floridacryptoedu.com">✉ admin@floridacryptoedu.com</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;">📍 Downtown Fort Myers, FL</li>
+          <li><a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">📅 Book Free Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Florida Crypto Edu LLC. All rights reserved. Not a financial advisor. <a href="https://www.floridacryptoedu.com/disclaimer">Disclaimer</a></div>
+      <div class="footer-bottom-links">
+        <a href="https://www.floridacryptoedu.com/privacy-policy">Privacy Policy</a>
+        <a href="https://www.floridacryptoedu.com/terms-of-service">Terms of Service</a>
+        <a href="https://www.floridacryptoedu.com/return-policy-page">Return Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
