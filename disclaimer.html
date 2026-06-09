@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclaimer | Florida Crypto Edu</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ms-blue:#0078d4; --ms-blue-dark:#005a9e; --ms-navy:#003366; --ms-surface:#f3f3f3; --ms-white:#ffffff; --ms-text:#1a1a1a; --ms-text-secondary:#444444; --ms-text-muted:#767676; --ms-border:#e0e0e0; --ms-shadow:0 2px 8px rgba(0,0,0,0.08); --radius:4px; --radius-lg:8px; --font:'Plus Jakarta Sans','Segoe UI',sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font); color:var(--ms-text); background:var(--ms-white); line-height:1.6; overflow-x:hidden; }
+  .topbar { background:var(--ms-navy); color:white; padding:7px 0; font-size:13px; text-align:center; }
+  .topbar a { color:#90c8f6; text-decoration:none; }
+  .topbar a:hover { text-decoration:underline; }
+  nav { background:var(--ms-white); border-bottom:1px solid var(--ms-border); position:sticky; top:0; z-index:1000; box-shadow:var(--ms-shadow); }
+  .nav-inner { max-width:1200px; margin:0 auto; padding:0 32px; display:flex; align-items:center; height:60px; }
+  .nav-logo { display:flex; align-items:center; text-decoration:none; margin-right:40px; }
+  .nav-logo img { height:40px; width:auto; }
+  .nav-links { display:flex; align-items:center; gap:2px; flex:1; list-style:none; }
+  .nav-links a { text-decoration:none; color:var(--ms-text-secondary); font-size:14px; font-weight:500; padding:8px 14px; border-radius:var(--radius); transition:background 0.15s,color 0.15s; display:block; }
+  .nav-links a:hover { background:var(--ms-surface); color:var(--ms-blue); }
+  .nav-cta { margin-left:auto; display:flex; align-items:center; gap:12px; }
+  .nav-phone { font-size:13px; font-weight:600; color:var(--ms-text-secondary); }
+  .btn-primary { background:var(--ms-blue); color:white; border:none; padding:9px 20px; border-radius:var(--radius); font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; font-family:var(--font); }
+  .btn-primary:hover { background:var(--ms-blue-dark); }
+  section { padding:80px 32px; }
+  .section-inner { max-width:900px; margin:0 auto; }
+
+  .page-hero { background:linear-gradient(135deg,#001f4d 0%,#003580 50%,#0078d4 100%); color:white; padding:64px 32px; position:relative; overflow:hidden; }
+  .page-hero-grid { position:absolute; top:0;left:0;right:0;bottom:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
+  .page-hero-inner { max-width:900px; margin:0 auto; position:relative; text-align:center; }
+  .page-hero h1 { font-size:clamp(28px,4vw,44px); font-weight:800; letter-spacing:-1.5px; line-height:1.15; margin-bottom:12px; }
+  .page-hero p { font-size:16px; color:rgba(255,255,255,0.75); max-width:600px; margin:0 auto; line-height:1.7; }
+
+  .legal-content h2 { font-size:24px; font-weight:800; letter-spacing:-0.5px; color:var(--ms-text); margin-top:48px; margin-bottom:16px; padding-top:32px; border-top:1px solid var(--ms-border); }
+  .legal-content h2:first-of-type { margin-top:0; padding-top:0; border-top:none; }
+  .legal-content h3 { font-size:18px; font-weight:700; color:var(--ms-text); margin-top:28px; margin-bottom:10px; }
+  .legal-content p { font-size:15px; color:var(--ms-text-secondary); line-height:1.8; margin-bottom:14px; }
+  .legal-content ul { list-style:none; margin-bottom:16px; padding-left:0; }
+  .legal-content ul li { font-size:15px; color:var(--ms-text-secondary); line-height:1.8; padding:4px 0 4px 20px; position:relative; }
+  .legal-content ul li::before { content:'•'; color:var(--ms-blue); font-weight:700; position:absolute; left:0; }
+  .legal-highlight { background:#f0f7ff; border-left:4px solid var(--ms-blue); border-radius:0 var(--radius-lg) var(--radius-lg) 0; padding:20px 24px; margin:24px 0; }
+  .legal-highlight p { margin:0; font-weight:500; color:var(--ms-text); }
+  .last-updated { font-size:13px; color:var(--ms-text-muted); font-style:italic; margin-bottom:32px; }
+
+  footer { background:#0d0d0d; color:rgba(255,255,255,0.8); padding:56px 32px 32px; }
+  .footer-inner { max-width:1200px; margin:0 auto; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:32px; }
+  .footer-logo { display:flex; margin-bottom:16px; text-decoration:none; }
+  .footer-logo img { height:36px; width:auto; border-radius:4px; }
+  .footer-brand-desc { font-size:13px; line-height:1.7; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+  .footer-socials { display:flex; gap:10px; }
+  .footer-social { width:34px; height:34px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; transition:background 0.15s; }
+  .footer-social:hover { background:var(--ms-blue); color:white; border-color:var(--ms-blue); }
+  .footer-col-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:13px; transition:color 0.15s; }
+  .footer-links a:hover { color:white; }
+  .footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.35); flex-wrap:wrap; gap:12px; }
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom-links { display:flex; gap:20px; }
+  @media(max-width:900px){ .nav-links{display:none} .footer-top{grid-template-columns:1fr 1fr} section{padding:56px 20px} }
+</style>
+</head>
+<body>
+
+<div class="topbar">📍 Serving Fort Myers, Naples & Cape Coral &nbsp;|&nbsp; <a href="tel:12399901615">📞 Call or Text: 1-239-990-1615</a> &nbsp;|&nbsp; <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">Book a Free Consultation →</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-josh.html">About</a></li>
+      <li><a href="our-services.html">Our Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">239-990-1615</span>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <h1>Legal & Disclaimer</h1>
+    <p>Important information about our services, your privacy, and our policies. Please read carefully.</p>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner legal-content">
+    <p class="last-updated">Last updated: June 2025</p>
+
+    <h2>Educational Disclaimer</h2>
+    <div class="legal-highlight">
+      <p>Florida Crypto Edu provides cryptocurrency security education and consulting services only. We are not financial advisors and do not provide investment, tax, or legal advice.</p>
+    </div>
+    <p>All information, content, and services provided by Florida Crypto Edu LLC ("we," "us," or "our") are for educational and informational purposes only. Nothing we provide should be construed as financial advice, investment advice, tax advice, or legal advice.</p>
+    <p>We do not recommend, endorse, or suggest the purchase or sale of any specific cryptocurrency, token, or digital asset. Our services focus exclusively on the security, organization, and proper custody of digital assets you already own or choose to acquire independently.</p>
+    <p>Cryptocurrency markets are inherently volatile and risky. Past performance of any digital asset does not guarantee future results. You should always conduct your own research and consult with a licensed financial advisor, tax professional, or attorney before making any financial decisions.</p>
+
+    <h2>Services Disclaimer</h2>
+    <p>Our services — including the Entry Vault, Asset Essentials, and Complete Guardian packages — are designed to help you organize, secure, and document your existing cryptocurrency holdings. We provide hands-on guidance for:</p>
+    <ul>
+      <li>Setting up hardware wallets and crypto exchanges</li>
+      <li>Creating dedicated crypto email accounts</li>
+      <li>Organizing your Master Key Binder system</li>
+      <li>Documenting legacy and heir access plans</li>
+      <li>General crypto security education</li>
+    </ul>
+    <p>While we take every reasonable precaution to ensure the accuracy and security of our guidance, we cannot guarantee that any system is 100% immune to all threats. Digital security is an ongoing practice, not a one-time setup. You are ultimately responsible for maintaining the security of your own assets and keeping your documentation current.</p>
+
+    <h2>Privacy Policy</h2>
+    <p>Florida Crypto Edu LLC respects your privacy and is committed to protecting your personal information.</p>
+
+    <h3>Information We Collect</h3>
+    <p>We may collect the following types of information when you interact with our website, book a consultation, or use our services:</p>
+    <ul>
+      <li>Name and contact information (email address, phone number)</li>
+      <li>Scheduling and appointment information through Acuity Scheduling</li>
+      <li>Payment information processed securely through Stripe (we do not store your credit card details)</li>
+      <li>Email address when you sign up for our free Crypto Playbook</li>
+      <li>General website usage data through cookies</li>
+    </ul>
+
+    <h3>How We Use Your Information</h3>
+    <p>Your information is used solely to provide our services, communicate with you about your appointments, deliver educational materials you've requested (such as the Crypto Playbook), and improve our website experience. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+    <h3>Cookies</h3>
+    <p>Our website uses cookies to remember your preferences and improve your browsing experience. You can control cookie settings through your browser. Our cookie consent banner allows you to accept or decline cookies when you first visit our site.</p>
+
+    <h3>Third-Party Services</h3>
+    <p>We use the following third-party services to operate our business, each with their own privacy policies:</p>
+    <ul>
+      <li>Acuity Scheduling — for appointment booking</li>
+      <li>Stripe — for secure payment processing</li>
+      <li>MailerLite — for email communications and Playbook delivery</li>
+      <li>GitHub Pages — for website hosting</li>
+    </ul>
+
+    <h2>Terms of Service</h2>
+    <p>By using our website and services, you agree to the following terms:</p>
+    <ul>
+      <li>You understand that our services are educational in nature and do not constitute financial, investment, tax, or legal advice</li>
+      <li>You acknowledge that cryptocurrency involves inherent risks, including the potential loss of your entire investment</li>
+      <li>You are responsible for the ongoing security and maintenance of your own digital assets after our service sessions</li>
+      <li>You agree not to hold Florida Crypto Edu LLC liable for any losses resulting from market conditions, security breaches beyond our control, or your own actions or inactions</li>
+      <li>All content on this website is the property of Florida Crypto Edu LLC and may not be reproduced without permission</li>
+    </ul>
+
+    <h2>Return & Refund Policy</h2>
+    <p>Due to the personalized, hands-on nature of our services, all sales are final once a service session has begun. Our packages involve dedicated one-on-one time, physical materials (including the Master Key Binder), and access to proprietary systems and documentation.</p>
+    <ul>
+      <li>Consultations may be rescheduled with at least 24 hours' notice</li>
+      <li>No-shows without notice are not eligible for refunds</li>
+      <li>If a service session has not yet taken place, a refund may be considered on a case-by-case basis at our discretion</li>
+      <li>The free Crypto Playbook is provided at no cost and requires no refund</li>
+    </ul>
+    <p>If you have concerns about a service or experience, please contact us directly at <a href="mailto:joshua@floridacryptoedu.com" style="color:var(--ms-blue);font-weight:600;">joshua@floridacryptoedu.com</a> or call <a href="tel:12399901615" style="color:var(--ms-blue);font-weight:600;">1-239-990-1615</a>. We are committed to resolving any issues personally and professionally.</p>
+
+    <h2>Contact Information</h2>
+    <p>If you have any questions about this disclaimer, our privacy practices, or our terms of service, please contact us:</p>
+    <p><strong>Florida Crypto Edu LLC</strong><br>
+    Downtown Fort Myers, Florida<br>
+    📞 <a href="tel:12399901615" style="color:var(--ms-blue);">1-239-990-1615</a><br>
+    ✉ <a href="mailto:joshua@floridacryptoedu.com" style="color:var(--ms-blue);">joshua@floridacryptoedu.com</a><br>
+    ✉ <a href="mailto:admin@floridacryptoedu.com" style="color:var(--ms-blue);">admin@floridacryptoedu.com</a></p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+        <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
+        <div class="footer-socials">
+          <a href="http://www.linkedin.com/in/floridacryptoedu" class="footer-social">in</a>
+          <a href="https://www.youtube.com/@CryptoJoshFL" class="footer-social">▶</a>
+          <a href="https://www.facebook.com/profile.php?id=61589618993895" class="footer-social">f</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="our-services.html">Entry Vault — $399</a></li>
+          <li><a href="our-services.html">Asset Essentials — $549</a></li>
+          <li><a href="our-services.html">Complete Guardian — $749</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about-josh.html">About Crypto Josh</a></li>
+          <li><a href="our-services.html">All Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:12399901615">📞 1-239-990-1615</a></li>
+          <li><a href="mailto:joshua@floridacryptoedu.com">✉ joshua@floridacryptoedu.com</a></li>
+          <li><a href="mailto:admin@floridacryptoedu.com">✉ admin@floridacryptoedu.com</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;">📍 Downtown Fort Myers, FL</li>
+          <li><a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">📅 Book Free Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Florida Crypto Edu LLC. All rights reserved. Not a financial advisor. <a href="disclaimer.html">Disclaimer</a></div>
+      <div class="footer-bottom-links">
+        <a href="disclaimer.html">Privacy Policy</a>
+        <a href="disclaimer.html">Terms of Service</a>
+        <a href="disclaimer.html">Return Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:rgba(255,255,255,0.9);padding:16px 24px;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-family:var(--font);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:250px;">
+      <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;">🍪 We use cookies to improve your experience on our site. By continuing to browse, you agree to our <a href="disclaimer.html" style="color:#50aeff;text-decoration:underline;">Privacy Policy</a>.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+  function acceptCookies() {
+    document.getElementById('cookieBanner').style.display = 'none';
+    try { localStorage.setItem('cookieConsent', 'accepted'); } catch(e) {}
+  }
+  function declineCookies() {
+    document.getElementById('cookieBanner').style.display = 'none';
+    try { localStorage.setItem('cookieConsent', 'declined'); } catch(e) {}
+  }
+  (function() {
+    try {
+      var consent = localStorage.getItem('cookieConsent');
+      if (!consent) { document.getElementById('cookieBanner').style.display = 'block'; }
+    } catch(e) { document.getElementById('cookieBanner').style.display = 'block'; }
+  })();
+</script>
+</body>
+</html>
