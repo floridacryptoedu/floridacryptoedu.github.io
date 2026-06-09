@@ -198,6 +198,17 @@
   .footer-bottom a:hover { color:rgba(255,255,255,0.6); }
   .footer-bottom-links { display:flex; gap:20px; }
 
+  .comparison { background:var(--ms-surface); }
+  .comparison-table { width:100%; border-collapse:collapse; margin-top:40px; background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--ms-shadow); }
+  .comparison-table th { background:var(--ms-blue); color:white; padding:16px 20px; text-align:left; font-size:14px; font-weight:700; }
+  .comparison-table th:first-child { background:#003366; }
+  .comparison-table td { padding:14px 20px; font-size:14px; border-bottom:1px solid var(--ms-border); }
+  .comparison-table tr:last-child td { border-bottom:none; }
+  .comparison-table tr:nth-child(even) td { background:#f9f9f9; }
+  .comparison-table td:first-child { font-weight:600; color:var(--ms-text); }
+  .check { color:var(--ms-green); font-weight:700; font-size:16px; }
+  .dash { color:#ccc; }
+
   @media(max-width:900px){
     .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid{grid-template-columns:1fr}
     .hero-card{display:block;margin-top:32px;}
@@ -409,6 +420,39 @@
   </div>
 </section>
 
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <div class="section-inner">
+    <div class="section-eyebrow">Side-by-Side Comparison</div>
+    <h2 class="section-title">What's Included in Each Package</h2>
+    <div style="overflow-x:auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Entry Vault<br><span style="font-weight:400;font-size:13px;">$399</span></th>
+            <th>Asset Essentials<br><span style="font-weight:400;font-size:13px;">$549</span></th>
+            <th>Complete Guardian<br><span style="font-weight:400;font-size:13px;">$749</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Master Key Binder</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>1 Crypto Exchange Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Hardware Wallet Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Dedicated Crypto Email</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>2nd Exchange Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Crypto Debit Card Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Tax Tracking App Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Legacy & Heir Planning</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Estate Documentation</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Family Education Session</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>In-Home Option Available</td><td>+$150</td><td>+$150</td><td>+$150</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section id="how-it-works" style="background:white;">
   <div class="section-inner">
     <div class="section-header" style="text-align:center;">
@@ -548,7 +592,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <a href="#" class="footer-logo">
+        <a href="index.html" class="footer-logo">
           <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" style="height:36px;width:auto;border-radius:4px;" />
         </a>
         <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
