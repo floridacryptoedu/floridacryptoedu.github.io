@@ -41,7 +41,6 @@
   .nav-inner { max-width:1200px; margin:0 auto; padding:0 32px; display:flex; align-items:center; height:60px; }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:40px; }
   .nav-logo-icon { height:40px; width:auto; display:block; }
-  .nav-logo-text { display:none; }
   .nav-links { display:flex; align-items:center; gap:2px; flex:1; list-style:none; }
   .nav-links a { text-decoration:none; color:var(--ms-text-secondary); font-size:14px; font-weight:500; padding:8px 14px; border-radius:var(--radius); transition:background 0.15s,color 0.15s; display:block; }
   .nav-links a:hover { background:var(--ms-surface); color:var(--ms-blue); }
@@ -154,15 +153,76 @@
 
   /* MASTER KEY */
   .mkb { background:linear-gradient(160deg,#f0f7ff 0%,white 100%); border-top:1px solid #d0e8f8; border-bottom:1px solid #d0e8f8; }
-  .mkb-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .mkb-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
   .mkb-visual { background:linear-gradient(135deg,#0078d4,#003580); border-radius:12px; padding:48px 40px; color:white; text-align:center; position:relative; overflow:hidden; }
   .mkb-icon { font-size:64px; margin-bottom:16px; display:block; }
   .mkb-visual-title { font-size:26px; font-weight:800; margin-bottom:8px; letter-spacing:-0.5px; }
   .mkb-visual-sub { font-size:14px; color:rgba(255,255,255,0.75); margin-bottom:24px; }
   .mkb-visual-features { display:flex; flex-direction:column; gap:10px; text-align:left; }
   .mkb-feature { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); border-radius:var(--radius); padding:10px 14px; font-size:13px; font-weight:500; }
+
+  /* GOLDEN TRANSFER SPOTLIGHT */
+  .gtp-spotlight { background:rgba(255,215,0,0.12); border:1px solid rgba(255,215,0,0.35); border-radius:var(--radius-lg); padding:20px; margin-top:20px; text-align:left; }
+  .gtp-spotlight-title { font-size:15px; font-weight:800; color:#ffe066; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .gtp-spotlight-sub { font-size:12px; color:rgba(255,255,255,0.6); margin-bottom:12px; }
+  .gtp-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+  .gtp-list li { font-size:12px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:8px; }
+  .gtp-list li::before { content:'→'; color:#ffe066; font-weight:700; }
+  .gtp-tagline { font-size:12px; font-style:italic; color:rgba(255,255,255,0.55); margin-top:12px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px; }
+
   .mkb-content h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:16px; }
   .mkb-content p { font-size:16px; color:var(--ms-text-secondary); line-height:1.7; margin-bottom:16px; }
+
+  /* GROW WITH YOU SECTION */
+  .grow-section { background:#0a0a0a; color:white; padding:72px 32px; }
+  .grow-inner { max-width:1200px; margin:0 auto; }
+  .grow-header { text-align:center; margin-bottom:48px; }
+  .grow-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:40px; }
+  .grow-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-lg); padding:28px; transition:background 0.2s,border-color 0.2s; }
+  .grow-card:hover { background:rgba(255,255,255,0.08); border-color:rgba(80,174,255,0.3); }
+  .grow-card-icon { font-size:32px; margin-bottom:16px; }
+  .grow-card-title { font-size:17px; font-weight:700; color:white; margin-bottom:8px; }
+  .grow-card-desc { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.7; }
+  .grow-note { background:rgba(0,120,212,0.15); border:1px solid rgba(80,174,255,0.25); border-radius:var(--radius); padding:16px 24px; text-align:center; font-size:14px; color:rgba(255,255,255,0.7); }
+  .grow-note strong { color:#50aeff; }
+
+  /* CONTACT SECTION */
+  .contact-section { background:var(--ms-surface); padding:80px 32px; }
+  .contact-inner { max-width:1200px; margin:0 auto; }
+  .contact-grid { display:grid; grid-template-columns:1fr 420px; gap:48px; align-items:start; }
+  .contact-form-wrap { background:white; border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:40px; box-shadow:var(--ms-shadow); }
+  .contact-form-wrap h3 { font-size:22px; font-weight:800; margin-bottom:6px; }
+  .contact-form-wrap p { font-size:14px; color:var(--ms-text-secondary); margin-bottom:28px; line-height:1.6; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { font-size:13px; font-weight:600; display:block; margin-bottom:6px; color:var(--ms-text); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea { width:100%; padding:11px 14px; border:1px solid var(--ms-border); border-radius:var(--radius); font-size:14px; font-family:var(--font); color:var(--ms-text); background:white; outline:none; transition:border-color 0.15s; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color:var(--ms-blue); box-shadow:0 0 0 3px rgba(0,120,212,0.1); }
+  .form-group textarea { resize:vertical; min-height:110px; }
+  .form-submit { width:100%; padding:13px; background:var(--ms-blue); color:white; border:none; border-radius:var(--radius); font-size:15px; font-weight:700; cursor:pointer; font-family:var(--font); transition:background 0.15s; }
+  .form-submit:hover { background:var(--ms-blue-dark); }
+  .form-disclaimer { font-size:11px; color:var(--ms-text-muted); margin-top:12px; text-align:center; }
+  .form-disclaimer a { color:var(--ms-blue); }
+  .contact-sidebar { display:flex; flex-direction:column; gap:20px; }
+  .contact-card { background:white; border:1px solid var(--ms-border); border-radius:var(--radius-lg); padding:24px; }
+  .contact-card.featured { background:linear-gradient(135deg,#0078d4,#003580); border:none; color:white; }
+  .contact-card.featured h4 { color:white; }
+  .contact-card.featured p { color:rgba(255,255,255,0.8); }
+  .contact-card h4 { font-size:16px; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .contact-card p { font-size:13px; color:var(--ms-text-secondary); line-height:1.6; margin-bottom:16px; }
+  .contact-book-btn { display:block; background:white; color:var(--ms-blue); text-decoration:none; padding:11px 18px; border-radius:var(--radius); font-size:14px; font-weight:700; text-align:center; transition:background 0.15s; }
+  .contact-book-btn:hover { background:#e8f3ff; }
+  .contact-info-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .contact-info-list li { font-size:13px; color:var(--ms-text-secondary); display:flex; align-items:center; gap:8px; }
+  .contact-info-list a { color:var(--ms-blue); text-decoration:none; }
+  .contact-info-list a:hover { text-decoration:underline; }
+  .social-row { display:flex; gap:10px; margin-top:12px; }
+  .social-btn { flex:1; text-align:center; padding:9px; border:1px solid var(--ms-border); border-radius:var(--radius); font-size:13px; font-weight:600; text-decoration:none; color:var(--ms-text-secondary); transition:background 0.15s,color 0.15s,border-color 0.15s; }
+  .social-btn:hover { background:var(--ms-blue); color:white; border-color:var(--ms-blue); }
 
   /* PLAYBOOK */
   .playbook { background:var(--ms-blue); color:white; padding:64px 32px; }
@@ -171,9 +231,9 @@
   .playbook p { font-size:16px; color:rgba(255,255,255,0.85); line-height:1.6; }
   .playbook-form { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:var(--radius-lg); padding:28px; }
   .playbook-form label { font-size:13px; font-weight:600; display:block; margin-bottom:8px; }
-  .playbook-form input { width:100%; padding:11px 14px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); color:white; font-size:14px; font-family:var(--font); margin-bottom:14px; outline:none; }
-  .playbook-form input::placeholder { color:rgba(255,255,255,0.5); }
-  .playbook-form input:focus { border-color:rgba(255,255,255,0.7); }
+  .playbook-form input[type="email"] { width:100%; padding:11px 14px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); color:white; font-size:14px; font-family:var(--font); margin-bottom:14px; outline:none; }
+  .playbook-form input[type="email"]::placeholder { color:rgba(255,255,255,0.5); }
+  .playbook-form input[type="email"]:focus { border-color:rgba(255,255,255,0.7); }
   .playbook-form button { width:100%; padding:12px; background:white; color:var(--ms-blue); border:none; border-radius:var(--radius); font-size:15px; font-weight:700; cursor:pointer; font-family:var(--font); transition:background 0.15s; }
   .playbook-form button:hover { background:#e8f3ff; }
   .playbook-form small { font-size:11px; color:rgba(255,255,255,0.5); margin-top:8px; display:block; }
@@ -210,7 +270,7 @@
   .dash { color:#ccc; }
 
   @media(max-width:900px){
-    .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid{grid-template-columns:1fr}
+    .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid,.contact-grid,.grow-grid{grid-template-columns:1fr}
     .hero-card{display:block;margin-top:32px;}
     .hero-card-photo{aspect-ratio:16/9;}
     .services-grid{grid-template-columns:1fr}
@@ -222,6 +282,8 @@
     .legacy-grid{grid-template-columns:1fr !important}
     .legacy-stat-box{padding:32px 24px !important}
     .legacy-cta-btn{width:100%;text-align:center;}
+    .form-row{grid-template-columns:1fr}
+    .contact-section{padding:56px 20px}
   }
 </style>
 </head>
@@ -296,7 +358,7 @@
       <div class="trust-item">✅ Naples HNW Clients</div>
       <div class="trust-item">✅ In-Person & Virtual Sessions</div>
       <div class="trust-item">✅ Master Key Binder System</div>
-      <div class="trust-item">✅ Legacy Estate Planning</div>
+      <div class="trust-item">✅ Complete Guardian Legacy Planning</div>
     </div>
   </div>
 </div>
@@ -489,6 +551,7 @@
   </div>
 </section>
 
+<!-- WHY US — CHANGE 1: "Legacy Planning Included" replaced with Option B -->
 <section class="why" id="why-us">
   <div class="section-inner">
     <div class="why-grid">
@@ -513,8 +576,8 @@
           <li class="why-item">
             <div class="why-icon">📋</div>
             <div>
-              <div class="why-title">Legacy Planning Included</div>
-              <div class="why-desc">Your digital assets need to be accessible to your heirs. We document everything so your family is protected when it matters most.</div>
+              <div class="why-title">Built for the Long Term</div>
+              <div class="why-desc">Our structured approach protects your assets today — and our highest tier extends that protection to your heirs and estate, so your wealth outlasts you.</div>
             </div>
           </li>
           <li class="why-item">
@@ -552,28 +615,157 @@
   </div>
 </section>
 
+<!-- MASTER KEY BINDER — CHANGES 2 & 3: friendly copy, new bullets, Golden Transfer Protocol spotlight -->
 <section class="mkb" id="master-key">
   <div class="section-inner">
     <div class="mkb-inner">
       <div class="mkb-visual">
         <span class="mkb-icon">📗</span>
         <div class="mkb-visual-title">The Master Key Binder</div>
-        <div class="mkb-visual-sub">Your complete crypto security command center — organized, protected, and ready for any situation.</div>
+        <div class="mkb-visual-sub">Everything about your crypto — organized, protected, and easy to understand. All in one safe place.</div>
         <div class="mkb-visual-features">
-          <div class="mkb-feature">🔑 Secure seed phrase storage system</div>
-          <div class="mkb-feature">📧 Protected crypto email documentation</div>
-          <div class="mkb-feature">🔐 Hardware wallet setup records</div>
-          <div class="mkb-feature">📜 Emergency recovery documentation</div>
-          <div class="mkb-feature">🛡️ Step-by-step recovery procedures</div>
+          <div class="mkb-feature">🔑 Your seed phrase — safely stored and never lost</div>
+          <div class="mkb-feature">📧 Your crypto email — documented and protected</div>
+          <div class="mkb-feature">🔐 Your hardware wallet — set up and recorded for you</div>
+          <div class="mkb-feature">📜 Emergency steps — clear instructions if something goes wrong</div>
+          <div class="mkb-feature">🛡️ Recovery procedures — we walk you through everything</div>
+          <div class="mkb-feature">🚨 Scam & fraud prevention — know exactly what to watch for</div>
+          <div class="mkb-feature">🏆 Golden Transfer Protocol — send & receive crypto safely, every time</div>
+        </div>
+        <!-- GOLDEN TRANSFER PROTOCOL SPOTLIGHT -->
+        <div class="gtp-spotlight">
+          <div class="gtp-spotlight-title">🏆 The Golden Transfer Protocol</div>
+          <div class="gtp-spotlight-sub">Included with every Master Key Binder</div>
+          <ul class="gtp-list">
+            <li>Sending to an exchange</li>
+            <li>Sending to a friend or family member</li>
+            <li>Moving to your own private wallet</li>
+          </ul>
+          <div class="gtp-tagline">Follow the protocol every time — never lose funds to a simple mistake again.</div>
         </div>
       </div>
       <div class="mkb-content">
         <div class="section-eyebrow">Included with Every Package</div>
-        <h2>Your Physical Crypto Fortress in a Binder</h2>
-        <p>Every single client receives our signature <strong>Master Key Binder</strong> — a comprehensive, physical security system that organizes every critical piece of your crypto setup in one secure, protected place.</p>
-        <p>Unlike digital-only solutions, the Master Key Binder ensures your assets are accessible, organized, and protected even if every device you own is compromised. It's also your family's roadmap when they need it most.</p>
+        <h2>Your Crypto Life — Organized, Protected, and Easy to Understand</h2>
+        <p>Every client receives our signature <strong>Master Key Binder</strong> — a simple, physical guide that puts everything about your crypto in one safe place. No tech jargon. No confusion. Just clear, organized protection you can hold in your hands.</p>
+        <p>Even if something happens to your phone or computer, your Master Key Binder keeps you covered. And when the time comes, your family will know exactly what to do.</p>
         <p>The Master Key Binder is included with every package — Entry Vault, Asset Essentials, and Complete Guardian. Legacy and heir access planning is exclusively available with the Complete Guardian package.</p>
         <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Get Your Master Key Binder</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AS YOU GROW SECTION — CHANGE 4: Premium services teaser -->
+<section class="grow-section">
+  <div class="grow-inner">
+    <div class="grow-header">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#50aeff;margin-bottom:12px;">As Your Crypto Life Grows, We Grow With You</div>
+      <h2 style="font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;">More Than Security — A Complete Crypto Life</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;line-height:1.7;">We're not just a one-time setup. For clients who want to go further, we offer powerful next-level services to make crypto a seamless part of your financial life.</p>
+    </div>
+    <div class="grow-grid">
+      <div class="grow-card">
+        <div class="grow-card-icon">📊</div>
+        <div class="grow-card-title">Crypto Tax App Setup</div>
+        <div class="grow-card-desc">We help you get organized for tax season so nothing surprises you come April. Know exactly what you owe — and what you don't.</div>
+      </div>
+      <div class="grow-card">
+        <div class="grow-card-icon">💳</div>
+        <div class="grow-card-title">Crypto Debit Card Setup</div>
+        <div class="grow-card-desc">Spend your crypto in the real world, the right way. We walk you through getting and using a crypto debit card safely and confidently.</div>
+      </div>
+      <div class="grow-card">
+        <div class="grow-card-icon">🏛️</div>
+        <div class="grow-card-title">Legacy & Heir Planning</div>
+        <div class="grow-card-desc">Make sure your family is protected when it matters most. Full estate-level documentation so your digital wealth is never lost — no matter what.</div>
+      </div>
+    </div>
+    <div class="grow-note">
+      These services are available with our <strong>Asset Essentials</strong> and <strong>Complete Guardian</strong> packages. Not sure which is right for you? <strong><a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" style="color:#50aeff;text-decoration:none;">Book a free call</a></strong> and we'll walk you through it — no pressure, no obligation.
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION — CHANGE 5: Full contact form added to home page -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Ready to Protect What You've Built?</h2>
+      <p class="section-sub" style="margin:0 auto;">Take the first step — it's free, friendly, and there's no pressure.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <p>Fill out the form below and we'll get back to you within 24 hours to begin your journey toward total crypto security.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Joshua" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Williams" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(239) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label>I'm Interested In</label>
+          <select>
+            <option value="">Select a package...</option>
+            <option>Entry Vault — $399</option>
+            <option>Asset Essentials — $549</option>
+            <option>Complete Guardian — $749</option>
+            <option>Not sure yet — help me decide</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Session Type Preference</label>
+          <select>
+            <option value="">Select preference...</option>
+            <option>In-Office (Downtown Fort Myers)</option>
+            <option>Virtual Session</option>
+            <option>In-Home Visit (+$150)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea placeholder="Tell us a little about your current crypto setup or any questions you have..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleContactSubmit(this)">Send Message →</button>
+        <div class="form-disclaimer">By submitting, you acknowledge our <a href="disclaimer.html">educational-only disclaimer</a>. We are not financial advisors.</div>
+      </div>
+      <div class="contact-sidebar">
+        <div class="contact-card featured">
+          <h4>📅 Skip the Form — Book Directly</h4>
+          <p>Prefer to get on the calendar right now? Book your free 15-minute strategy call instantly through our online scheduler.</p>
+          <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="contact-book-btn">Book Your Free Call Now</a>
+        </div>
+        <div class="contact-card">
+          <h4>🏢 Office Location</h4>
+          <p>Private consultations available at our Downtown Fort Myers location. We also offer virtual sessions and in-home visits throughout Southwest Florida.</p>
+        </div>
+        <div class="contact-card">
+          <h4>⏱️ Response Time</h4>
+          <p>We respond to all inquiries within <strong>24 hours</strong>. For immediate assistance, call or text us directly at <a href="tel:12399901615">1-239-990-1615</a>.</p>
+        </div>
+        <div class="contact-card">
+          <h4>🌐 Follow Us</h4>
+          <p>Stay connected for crypto security tips, scam alerts, and local news.</p>
+          <div class="social-row">
+            <a href="http://www.linkedin.com/in/floridacryptoedu" class="social-btn">in LinkedIn</a>
+            <a href="https://www.youtube.com/@CryptoJoshFL" class="social-btn">▶ YouTube</a>
+            <a href="https://www.facebook.com/profile.php?id=61589618993895" class="social-btn">f Facebook</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -589,10 +781,10 @@
       <div id="playbook-form-container">
         <label>Your Email Address</label>
         <form id="playbook-form" action="https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/subscribe" method="post" target="ml-hidden-frame" onsubmit="handlePlaybookSubmit()">
-          <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@email.com" required style="width:100%;padding:11px 14px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:white;font-size:14px;font-family:var(--font);margin-bottom:14px;outline:none;">
+          <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@email.com" required>
           <input type="hidden" name="ml-submit" value="1">
           <input type="hidden" name="anticsrf" value="true">
-          <button type="submit" id="playbook-submit" style="width:100%;padding:12px;background:white;color:#0078d4;border:none;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Send Me The Free Playbook →</button>
+          <button type="submit" id="playbook-submit">Send Me The Free Playbook →</button>
         </form>
         <small>🔒 We respect your privacy. No spam, ever.</small>
       </div>
@@ -605,19 +797,8 @@
     <iframe name="ml-hidden-frame" style="display:none;"></iframe>
   </div>
 </section>
-<script>
-  function handlePlaybookSubmit() {
-    var btn = document.getElementById('playbook-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    setTimeout(function() {
-      document.getElementById('playbook-form-container').style.display = 'none';
-      document.getElementById('playbook-success').style.display = 'block';
-    }, 1500);
-  }
-</script>
 
-<footer id="contact">
+<footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
@@ -672,12 +853,32 @@
 </footer>
 
 <script>
+  function handlePlaybookSubmit() {
+    var btn = document.getElementById('playbook-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(function() {
+      document.getElementById('playbook-form-container').style.display = 'none';
+      document.getElementById('playbook-success').style.display = 'block';
+    }, 1500);
+  }
+
+  function handleContactSubmit(btn) {
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(function() {
+      btn.textContent = '✅ Message Sent!';
+      btn.style.background = '#107c10';
+    }, 1200);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
     });
   });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -686,7 +887,7 @@
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.service-card, .step, .why-item').forEach(el => {
+  document.querySelectorAll('.service-card, .step, .why-item, .grow-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -701,8 +902,8 @@
       <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;">🍪 We use cookies to improve your experience on our site. By continuing to browse, you agree to our <a href="disclaimer.html" style="color:#50aeff;text-decoration:underline;">Privacy Policy</a>.</p>
     </div>
     <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Accept</button>
-      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Decline</button>
+      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);">Decline</button>
     </div>
   </div>
 </div>
