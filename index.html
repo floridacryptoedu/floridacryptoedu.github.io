@@ -588,12 +588,8 @@
     <div class="playbook-form">
       <div id="playbook-form-container">
         <label>Your Email Address</label>
-        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/subscribe" data-code="" method="post" target="_blank" style="margin:0;padding:0;">
-          <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@email.com" required style="width:100%;padding:11px 14px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:white;font-size:14px;font-family:var(--font);margin-bottom:14px;outline:none;">
-          <input type="hidden" name="ml-submit" value="1">
-          <input type="hidden" name="anticsrf" value="true">
-          <button type="submit" style="width:100%;padding:12px;background:white;color:#0078d4;border:none;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Send Me The Free Playbook →</button>
-        </form>
+        <input id="playbook-email" type="email" placeholder="you@email.com" required style="width:100%;padding:11px 14px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:white;font-size:14px;font-family:var(--font);margin-bottom:14px;outline:none;">
+        <button type="button" id="playbook-submit" onclick="submitPlaybook()" style="width:100%;padding:12px;background:white;color:#0078d4;border:none;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Send Me The Free Playbook →</button>
         <small>🔒 We respect your privacy. No spam, ever.</small>
       </div>
       <div id="playbook-success" style="display:none;text-align:center;padding:20px 0;">
@@ -604,9 +600,32 @@
     </div>
   </div>
 </section>
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
 <script>
-  fetch("https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/takel");
+  function submitPlaybook() {
+    var email = document.getElementById('playbook-email').value;
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    var btn = document.getElementById('playbook-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var formData = new FormData();
+    formData.append('fields[email]', email);
+    formData.append('ml-submit', '1');
+    formData.append('anticsrf', 'true');
+    fetch('https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/subscribe', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).then(function() {
+      document.getElementById('playbook-form-container').style.display = 'none';
+      document.getElementById('playbook-success').style.display = 'block';
+    }).catch(function() {
+      document.getElementById('playbook-form-container').style.display = 'none';
+      document.getElementById('playbook-success').style.display = 'block';
+    });
+  }
 </script>
 
 <footer id="contact">
