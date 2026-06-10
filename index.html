@@ -269,6 +269,22 @@
   .check { color:var(--ms-green); font-weight:700; font-size:16px; }
   .dash { color:#ccc; }
 
+  /* HAMBURGER MENU */
+  .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; background:none; border:none; cursor:pointer; padding:8px; border-radius:var(--radius); margin-left:12px; }
+  .hamburger span { display:block; width:22px; height:2px; background:var(--ms-text); border-radius:2px; transition:all 0.3s ease; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:white; border-bottom:2px solid var(--ms-blue); box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:999; padding:16px 0; }
+  .mobile-menu.open { display:block; }
+  .mobile-menu a { display:block; padding:13px 28px; font-size:15px; font-weight:600; color:var(--ms-text); text-decoration:none; border-bottom:1px solid var(--ms-border); transition:background 0.15s,color 0.15s; }
+  .mobile-menu a:last-child { border-bottom:none; }
+  .mobile-menu a:hover { background:var(--ms-surface); color:var(--ms-blue); }
+  .mobile-menu .mobile-cta { margin:16px 20px 8px; display:block; background:var(--ms-blue); color:white !important; text-align:center; padding:13px 20px; border-radius:var(--radius); font-size:15px; font-weight:700; border-bottom:none !important; }
+  .mobile-menu .mobile-cta:hover { background:var(--ms-blue-dark) !important; }
+  .mobile-menu .mobile-phone { display:block; text-align:center; padding:10px 28px 4px; font-size:14px; color:var(--ms-text-muted) !important; font-weight:600; border-bottom:none !important; }
+
   @media(max-width:900px){
     .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid,.contact-grid,.grow-grid{grid-template-columns:1fr}
     .hero-card{display:block;margin-top:32px;}
@@ -278,6 +294,8 @@
     .steps-grid::before{display:none}
     .footer-top{grid-template-columns:1fr 1fr}
     .nav-links{display:none}
+    .nav-phone{display:none}
+    .hamburger{display:flex}
     section{padding:56px 20px}
     .legacy-grid{grid-template-columns:1fr !important}
     .legacy-stat-box{padding:32px 24px !important}
@@ -308,9 +326,27 @@
     <div class="nav-cta">
       <span class="nav-phone">239-990-1615</span>
       <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE DROPDOWN MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-phone">📞 239-990-1615</span>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
+  <a href="#why-us" onclick="closeMenu()">Why Us</a>
+  <a href="#master-key" onclick="closeMenu()">Master Key Binder</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="about-josh.html" onclick="closeMenu()">About Josh</a>
+  <a href="disclaimer.html" onclick="closeMenu()">Disclaimer</a>
+  <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="mobile-cta">📅 Book Free Consultation</a>
+</div>
 
 <section class="hero">
   <div class="hero-grid"></div>
@@ -853,6 +889,25 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
   function handlePlaybookSubmit() {
     var btn = document.getElementById('playbook-submit');
     btn.textContent = 'Sending...';
