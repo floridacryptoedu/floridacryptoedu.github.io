@@ -975,7 +975,7 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION — CHANGE 5: Full contact form added to home page -->
+<!-- CONTACT SECTION — wired to Formspree -->
 <section class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="section-header" style="text-align:center;">
@@ -987,49 +987,69 @@
       <div class="contact-form-wrap">
         <h3>Send Us a Message</h3>
         <p>Fill out the form below and we'll get back to you within 24 hours to begin your journey toward total crypto security.</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" id="ci-fname" placeholder="First name" />
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" id="ci-lname" placeholder="Last name" />
-          </div>
+
+        <div id="contact-form-container">
+          <form id="contact-form" action="https://formspree.io/f/meewznnq" method="POST" onsubmit="handleContactFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" placeholder="First name" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" placeholder="Last name" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="(239) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label>I'm Interested In</label>
+              <select name="package_interest">
+                <option value="">Select a package...</option>
+                <option>Entry Vault — $399</option>
+                <option>Asset Essentials — $549</option>
+                <option>Complete Guardian — $749</option>
+                <option>Not sure yet — help me decide</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Session Type Preference</label>
+              <select name="session_type">
+                <option value="">Select preference...</option>
+                <option>In-Office (Downtown Fort Myers)</option>
+                <option>Virtual Session</option>
+                <option>In-Home Visit (+$150)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea name="message" placeholder="Tell us a little about your current crypto setup or any questions you have..."></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Contact Form Submission – Florida Crypto Edu" />
+            <button type="submit" class="form-submit" id="contact-submit-btn">Send Message →</button>
+            <div class="form-disclaimer">By submitting, you acknowledge our <a href="disclaimer.html">educational-only disclaimer</a>. We are not financial advisors.</div>
+          </form>
         </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="ci-email" placeholder="you@email.com" />
+
+        <!-- Success message -->
+        <div id="contact-success" style="display:none;text-align:center;padding:40px 20px;">
+          <div style="font-size:48px;margin-bottom:16px;">✅</div>
+          <div style="font-size:20px;font-weight:800;color:var(--ms-text);margin-bottom:8px;">Message Sent!</div>
+          <div style="font-size:14px;color:var(--ms-text-secondary);line-height:1.7;margin-bottom:24px;">Thanks for reaching out. We'll get back to you within 24 hours. In the meantime, feel free to book a free call directly.</div>
+          <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">📅 Book Your Free Call</a>
         </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" id="ci-phone" placeholder="(239) 000-0000" />
+
+        <!-- Error message -->
+        <div id="contact-error" style="display:none;background:#fff0f0;border:1px solid #ffcccc;border-radius:var(--radius);padding:14px 18px;margin-top:16px;font-size:13px;color:#cc0000;">
+          ⚠️ Something went wrong. Please try again or call us directly at <a href="tel:12399901615" style="color:#cc0000;font-weight:700;">1-239-990-1615</a>.
         </div>
-        <div class="form-group">
-          <label>I'm Interested In</label>
-          <select id="ci-package">
-            <option value="">Select a package...</option>
-            <option>Entry Vault — $399</option>
-            <option>Asset Essentials — $549</option>
-            <option>Complete Guardian — $749</option>
-            <option>Not sure yet — help me decide</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Session Type Preference</label>
-          <select id="ci-session">
-            <option value="">Select preference...</option>
-            <option>In-Office (Downtown Fort Myers)</option>
-            <option>Virtual Session</option>
-            <option>In-Home Visit (+$150)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message (Optional)</label>
-          <textarea id="ci-message" placeholder="Tell us a little about your current crypto setup or any questions you have..."></textarea>
-        </div>
-        <button class="form-submit" onclick="submitToAcuity(this)">Send Message →</button>
-        <div class="form-disclaimer">By submitting, you acknowledge our <a href="disclaimer.html">educational-only disclaimer</a>. We are not financial advisors.</div>
+
       </div>
       <div class="contact-sidebar">
         <div class="contact-card featured">
@@ -1176,6 +1196,33 @@
       closeMenu();
     }
   });
+
+  async function handleContactFormSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('contact-submit-btn');
+    const form = document.getElementById('contact-form');
+    const errorDiv = document.getElementById('contact-error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    errorDiv.style.display = 'none';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        document.getElementById('contact-form-container').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      errorDiv.style.display = 'block';
+    }
+  }
 
   function handlePlaybookSubmit() {
     var btn = document.getElementById('playbook-submit');
