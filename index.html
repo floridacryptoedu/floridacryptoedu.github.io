@@ -990,24 +990,24 @@
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Joshua" />
+            <input type="text" id="ci-fname" placeholder="First name" />
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Williams" />
+            <input type="text" id="ci-lname" placeholder="Last name" />
           </div>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@email.com" />
+          <input type="email" id="ci-email" placeholder="you@email.com" />
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="(239) 000-0000" />
+          <input type="tel" id="ci-phone" placeholder="(239) 000-0000" />
         </div>
         <div class="form-group">
           <label>I'm Interested In</label>
-          <select>
+          <select id="ci-package">
             <option value="">Select a package...</option>
             <option>Entry Vault — $399</option>
             <option>Asset Essentials — $549</option>
@@ -1017,7 +1017,7 @@
         </div>
         <div class="form-group">
           <label>Session Type Preference</label>
-          <select>
+          <select id="ci-session">
             <option value="">Select preference...</option>
             <option>In-Office (Downtown Fort Myers)</option>
             <option>Virtual Session</option>
@@ -1026,9 +1026,9 @@
         </div>
         <div class="form-group">
           <label>Message (Optional)</label>
-          <textarea placeholder="Tell us a little about your current crypto setup or any questions you have..."></textarea>
+          <textarea id="ci-message" placeholder="Tell us a little about your current crypto setup or any questions you have..."></textarea>
         </div>
-        <button class="form-submit" onclick="handleContactSubmit(this)">Send Message →</button>
+        <button class="form-submit" onclick="submitToAcuity(this)">Send Message →</button>
         <div class="form-disclaimer">By submitting, you acknowledge our <a href="disclaimer.html">educational-only disclaimer</a>. We are not financial advisors.</div>
       </div>
       <div class="contact-sidebar">
@@ -1187,13 +1187,34 @@
     }, 1500);
   }
 
-  function handleContactSubmit(btn) {
-    btn.textContent = 'Sending...';
+  function submitToAcuity(btn) {
+    var fname = document.getElementById('ci-fname').value.trim();
+    var lname = document.getElementById('ci-lname').value.trim();
+    var email = document.getElementById('ci-email').value.trim();
+    var phone = document.getElementById('ci-phone').value.trim();
+    var pkg = document.getElementById('ci-package').value;
+    var session = document.getElementById('ci-session').value;
+    var message = document.getElementById('ci-message').value.trim();
+
+    if (!fname || !email) {
+      alert('Please enter your first name and email address.');
+      return;
+    }
+
+    btn.textContent = 'Redirecting...';
     btn.disabled = true;
-    setTimeout(function() {
-      btn.textContent = '✅ Message Sent!';
-      btn.style.background = '#107c10';
-    }, 1200);
+
+    var base = 'https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=94317391';
+    var params = '';
+    if (fname) params += '&firstName=' + encodeURIComponent(fname);
+    if (lname) params += '&lastName=' + encodeURIComponent(lname);
+    if (email) params += '&email=' + encodeURIComponent(email);
+    if (phone) params += '&phone=' + encodeURIComponent(phone);
+    if (pkg) params += '&field:I\'m Interested In=' + encodeURIComponent(pkg);
+    if (session) params += '&field:Session Type Preference=' + encodeURIComponent(session);
+    if (message) params += '&field:Message=' + encodeURIComponent(message);
+
+    window.location.href = base + params;
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
