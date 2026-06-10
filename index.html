@@ -462,6 +462,7 @@
 
   @media(max-width:900px){
     .hero-inner,.stat-alert-inner,.mkb-inner,.playbook-inner,.why-grid,.contact-grid,.grow-grid{grid-template-columns:1fr}
+    #playbook > div > div { grid-template-columns:1fr !important; gap:40px !important; }
     .hero-card{display:block;margin-top:32px;}
     .hero-card-photo{aspect-ratio:16/9;}
     .services-grid{grid-template-columns:1fr}
@@ -762,6 +763,83 @@
   </div>
 </section>
 
+<!-- FREE PLAYBOOK — Option A placement: between How It Works and Services -->
+<section id="playbook" style="background:linear-gradient(135deg,#001f4d 0%,#003580 50%,#0078d4 100%);padding:72px 32px;color:white;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+
+      <!-- LEFT: Playbook mockup + what's inside -->
+      <div>
+        <!-- Playbook visual mockup -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:36px;margin-bottom:32px;display:flex;gap:28px;align-items:center;">
+          <!-- Book graphic -->
+          <div style="flex-shrink:0;width:90px;height:116px;background:linear-gradient(160deg,#50aeff,#0078d4);border-radius:6px;box-shadow:4px 4px 16px rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;">
+            <div style="font-size:28px;">📘</div>
+            <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:white;text-align:center;padding:0 8px;line-height:1.3;">Crypto<br>Playbook</div>
+            <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:rgba(0,0,0,0.2);border-radius:6px 0 0 6px;"></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#90c8f6;margin-bottom:8px;">Free Download</div>
+            <div style="font-size:20px;font-weight:800;line-height:1.2;margin-bottom:8px;">The Crypto Playbook</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;">The 101 Guide to the Future of Money — plain English, no hype, no jargon.</div>
+          </div>
+        </div>
+
+        <!-- What's inside list -->
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#90c8f6;margin-bottom:16px;">What's Inside:</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.85);">
+            <span style="color:#50aeff;font-weight:700;">✓</span> What blockchain really is — in plain English
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.85);">
+            <span style="color:#50aeff;font-weight:700;">✓</span> Why trillions are already moving onto the blockchain
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.85);">
+            <span style="color:#50aeff;font-weight:700;">✓</span> The #1 mistake new crypto holders make
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.85);">
+            <span style="color:#50aeff;font-weight:700;">✓</span> Your first steps to protecting your piece of it
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.85);">
+            <span style="color:#50aeff;font-weight:700;">✓</span> How to spot and avoid the most common crypto scams
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Signup form -->
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#90c8f6;margin-bottom:16px;">Free Instant Access</div>
+        <h2 style="font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;">Not Ready to Book Yet? Start Here — It's Free.</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:32px;">Get the Crypto Playbook delivered straight to your inbox. Instant access, no fluff, no spam — just the knowledge you need to protect yourself before taking another step.</p>
+
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:32px;">
+          <div id="playbook-form-container">
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px;">Your Email Address</label>
+            <form id="playbook-form" action="https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/subscribe" method="post" target="ml-hidden-frame" onsubmit="handlePlaybookSubmit()">
+              <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@email.com" required style="width:100%;padding:12px 14px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.12);color:white;font-size:14px;font-family:var(--font);margin-bottom:14px;outline:none;">
+              <input type="hidden" name="ml-submit" value="1">
+              <input type="hidden" name="anticsrf" value="true">
+              <button type="submit" id="playbook-submit" style="width:100%;padding:14px;background:white;color:var(--ms-blue);border:none;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Send Me The Free Playbook →</button>
+            </form>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:12px;text-align:center;">🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.</div>
+          </div>
+          <div id="playbook-success" style="display:none;text-align:center;padding:16px 0;">
+            <div style="font-size:40px;margin-bottom:12px;">✅</div>
+            <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">Check Your Inbox!</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">Your Crypto Playbook is on its way. If you don't see it in a few minutes, check your spam folder.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5);">
+          Ready to go further? <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" style="color:#90c8f6;font-weight:600;text-decoration:none;">Book your free 15-min call →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <iframe name="ml-hidden-frame" style="display:none;"></iframe>
+</section>
+
 <!-- WHY US — CHANGE 1: "Legacy Planning Included" replaced with Option B -->
 <section class="why" id="why-us">
   <div class="section-inner">
@@ -1010,69 +1088,20 @@
 
       <details style="background:var(--ms-surface);border:1px solid var(--ms-border);border-radius:var(--radius-lg);padding:20px 24px;cursor:pointer;">
         <summary style="font-size:16px;font-weight:700;color:var(--ms-text);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          Do you offer in-home visits in Fort Myers or Naples?
-          <span style="font-size:20px;color:var(--ms-blue);flex-shrink:0;margin-left:12px;">+</span>
-        </summary>
-        <p style="font-size:14px;color:var(--ms-text-secondary);line-height:1.7;margin-top:14px;">Yes! We offer in-home concierge visits throughout Southwest Florida including Fort Myers, Naples, Cape Coral, and surrounding areas. A flat $150 travel fee applies. We come to you, set everything up, and don't leave until it's done right.</p>
-      </details>
-
-      <details style="background:var(--ms-surface);border:1px solid var(--ms-border);border-radius:var(--radius-lg);padding:20px 24px;cursor:pointer;">
-        <summary style="font-size:16px;font-weight:700;color:var(--ms-text);list-style:none;display:flex;justify-content:space-between;align-items:center;">
           How much does crypto security setup cost?
           <span style="font-size:20px;color:var(--ms-blue);flex-shrink:0;margin-left:12px;">+</span>
         </summary>
         <p style="font-size:14px;color:var(--ms-text-secondary);line-height:1.7;margin-top:14px;">Our packages are one-time fees — no subscriptions, no ongoing charges. Entry Vault starts at $399, Asset Essentials at $549, and Complete Guardian at $749. We also offer a free 15-minute strategy call so you can find the right fit before spending a dollar.</p>
       </details>
 
-      <details style="background:var(--ms-surface);border:1px solid var(--ms-border);border-radius:var(--radius-lg);padding:20px 24px;cursor:pointer;">
-        <summary style="font-size:16px;font-weight:700;color:var(--ms-text);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          What's the difference between Asset Essentials and Complete Guardian?
-          <span style="font-size:20px;color:var(--ms-blue);flex-shrink:0;margin-left:12px;">+</span>
-        </summary>
-        <p style="font-size:14px;color:var(--ms-text-secondary);line-height:1.7;margin-top:14px;">Asset Essentials gives you a complete personal crypto security setup — two exchanges, debit card, tax tracking, scam prevention, and emergency coaching. Complete Guardian adds full legacy and heir planning, estate documentation for your digital assets, and a family education session so your loved ones are protected too.</p>
-      </details>
-
-      <details style="background:var(--ms-surface);border:1px solid var(--ms-border);border-radius:var(--radius-lg);padding:20px 24px;cursor:pointer;">
-        <summary style="font-size:16px;font-weight:700;color:var(--ms-text);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          Are you a financial advisor or investment service?
-          <span style="font-size:20px;color:var(--ms-blue);flex-shrink:0;margin-left:12px;">+</span>
-        </summary>
-        <p style="font-size:14px;color:var(--ms-text-secondary);line-height:1.7;margin-top:14px;">No. Florida Crypto Edu is strictly an educational and security service. We never give investment advice or tell you what to buy or sell. Our entire focus is protecting the crypto you already have — or helping you get set up safely from the start.</p>
-      </details>
-
     </div>
-    <div style="text-align:center;margin-top:40px;">
-      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Still Have Questions? Book a Free Call</a>
+    <div style="text-align:center;margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="faq.html" class="btn-secondary btn-large">See All FAQs →</a>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary btn-large">Book a Free Call</a>
     </div>
   </div>
 </section>
 
-
-  <div class="playbook-inner">
-    <div>
-      <h2>Get the Free Crypto Playbook</h2>
-      <p>The 101 Guide to the Future of Money — what blockchain really is, why it matters, and the first steps to protecting your piece of it. Instant access, no fluff.</p>
-    </div>
-    <div class="playbook-form">
-      <div id="playbook-form-container">
-        <label>Your Email Address</label>
-        <form id="playbook-form" action="https://assets.mailerlite.com/jsonp/2417107/forms/189719061758739523/subscribe" method="post" target="ml-hidden-frame" onsubmit="handlePlaybookSubmit()">
-          <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@email.com" required>
-          <input type="hidden" name="ml-submit" value="1">
-          <input type="hidden" name="anticsrf" value="true">
-          <button type="submit" id="playbook-submit">Send Me The Free Playbook →</button>
-        </form>
-        <small>🔒 We respect your privacy. No spam, ever.</small>
-      </div>
-      <div id="playbook-success" style="display:none;text-align:center;padding:20px 0;">
-        <div style="font-size:36px;margin-bottom:12px;">✅</div>
-        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">Check Your Inbox!</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.8);">Your Crypto Playbook is on its way. If you don't see it in a few minutes, check your spam folder.</div>
-      </div>
-    </div>
-    <iframe name="ml-hidden-frame" style="display:none;"></iframe>
-  </div>
-</section>
 
 <footer>
   <div class="footer-inner">
@@ -1102,6 +1131,7 @@
         <ul class="footer-links">
           <li><a href="about-josh.html">About Josh</a></li>
           <li><a href="our-services.html">All Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
