@@ -269,6 +269,21 @@
   .check { color:var(--ms-green); font-weight:700; font-size:16px; }
   .dash { color:#ccc; }
 
+  @media(max-width:640px){
+    .comparison-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .comparison-table { font-size:10px; min-width:0; width:100%; }
+    .comparison-table th { padding:8px 5px; font-size:10px; line-height:1.3; text-align:center; }
+    .comparison-table th:first-child { text-align:left; }
+    .comparison-table td { padding:7px 5px; font-size:10px; text-align:center; }
+    .comparison-table td:first-child { font-size:10px; text-align:left; }
+    .check { font-size:12px; }
+    .dash { font-size:12px; }
+    .service-card { padding:24px 20px; }
+    .service-price { font-size:24px; }
+    .mkb-visual { padding:32px 24px; }
+    .gtp-spotlight { padding:16px; }
+  }
+
   /* HAMBURGER MENU */
   .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; background:none; border:none; cursor:pointer; padding:8px; border-radius:var(--radius); margin-left:12px; }
   .hamburger span { display:block; width:22px; height:2px; background:var(--ms-text); border-radius:2px; transition:all 0.3s ease; }
@@ -297,6 +312,7 @@
     .nav-phone{display:none}
     .hamburger{display:flex}
     section{padding:56px 20px}
+    .comparison{ padding:56px 12px; }
     .legacy-grid{grid-template-columns:1fr !important}
     .legacy-stat-box{padding:32px 24px !important}
     .legacy-cta-btn{width:100%;text-align:center;}
@@ -527,13 +543,14 @@
   <div class="section-inner">
     <div class="section-eyebrow">Side-by-Side Comparison</div>
     <h2 class="section-title">What's Included in Each Package</h2>
-    <div style="overflow-x:auto;">
+    <!-- DESKTOP TABLE -->
+    <div class="comparison-table-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
       <table class="comparison-table">
         <thead>
           <tr>
             <th>Feature</th>
             <th>Entry Vault<br><span style="font-weight:400;font-size:13px;">$399</span></th>
-            <th>Asset Essentials<br><span style="font-weight:400;font-size:13px;">$549</span></th>
+            <th>⭐ Asset Essentials<br><span style="font-weight:400;font-size:13px;">$549</span></th>
             <th>Complete Guardian<br><span style="font-weight:400;font-size:13px;">$749</span></th>
           </tr>
         </thead>
