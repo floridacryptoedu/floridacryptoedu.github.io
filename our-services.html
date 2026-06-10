@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services | Florida Crypto Edu</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root { --ms-blue:#0078d4; --ms-blue-dark:#005a9e; --ms-navy:#003366; --ms-surface:#f3f3f3; --ms-white:#ffffff; --ms-text:#1a1a1a; --ms-text-secondary:#444444; --ms-border:#e0e0e0; --ms-green:#107c10; --ms-shadow:0 2px 8px rgba(0,0,0,0.08); --ms-shadow-hover:0 8px 24px rgba(0,0,0,0.12); --radius:4px; --radius-lg:8px; --font:'Plus Jakarta Sans','Segoe UI',sans-serif; }
@@ -27,11 +29,22 @@
   .btn-secondary { background:transparent; color:var(--ms-blue); border:1.5px solid var(--ms-blue); padding:9px 20px; border-radius:var(--radius); font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s,color 0.15s; font-family:var(--font); }
   .btn-secondary:hover { background:var(--ms-blue); color:white; }
   .btn-large { padding:14px 32px; font-size:16px; }
+  .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; background:none; border:none; cursor:pointer; padding:8px; border-radius:var(--radius); margin-left:12px; }
+  .hamburger span { display:block; width:22px; height:2px; background:var(--ms-text); border-radius:2px; transition:all 0.3s ease; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:white; border-bottom:2px solid var(--ms-blue); box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:999; padding:16px 0; }
+  .mobile-menu.open { display:block; }
+  .mobile-menu a { display:block; padding:13px 28px; font-size:15px; font-weight:600; color:var(--ms-text); text-decoration:none; border-bottom:1px solid var(--ms-border); transition:background 0.15s; }
+  .mobile-menu a:last-child { border-bottom:none; }
+  .mobile-menu a:hover { background:var(--ms-surface); color:var(--ms-blue); }
+  .mobile-menu .mobile-cta { margin:16px 20px 8px; display:block; background:var(--ms-blue); color:white !important; text-align:center; padding:13px 20px; border-radius:var(--radius); font-size:15px; font-weight:700; border-bottom:none !important; }
+  .mobile-menu .mobile-phone { display:block; text-align:center; padding:10px 28px 4px; font-size:14px; color:var(--ms-text-secondary) !important; font-weight:600; border-bottom:none !important; }
   section { padding:80px 32px; }
   .section-inner { max-width:1200px; margin:0 auto; }
   .section-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--ms-blue); margin-bottom:12px; }
   .section-title { font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-1px; line-height:1.2; color:var(--ms-text); margin-bottom:16px; }
-
   .page-hero { background:linear-gradient(135deg,#001f4d 0%,#003580 50%,#0078d4 100%); color:white; padding:80px 32px; position:relative; overflow:hidden; }
   .page-hero-grid { position:absolute; top:0;left:0;right:0;bottom:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
   .page-hero-inner { max-width:1200px; margin:0 auto; position:relative; text-align:center; }
@@ -41,9 +54,7 @@
   .page-hero p { font-size:18px; color:rgba(255,255,255,0.8); max-width:620px; margin:0 auto 28px; line-height:1.7; }
   .hero-badges { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px; }
   .hero-badge { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.9); padding:7px 16px; border-radius:20px; font-size:13px; font-weight:600; }
-
   .travel-note { background:#fff8e1; border:1px solid #f0c040; border-radius:var(--radius); padding:16px 24px; margin-bottom:32px; font-size:14px; color:#7a5c00; display:flex; align-items:flex-start; gap:12px; }
-
   .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .pkg-card { background:var(--ms-white); border:1px solid var(--ms-border); border-radius:var(--radius-lg); overflow:hidden; transition:box-shadow 0.2s,transform 0.2s; display:flex; flex-direction:column; }
   .pkg-card:hover { box-shadow:var(--ms-shadow-hover); transform:translateY(-4px); }
@@ -60,7 +71,6 @@
   .pkg-price { font-size:36px; font-weight:900; color:var(--ms-blue); letter-spacing:-1.5px; line-height:1; margin-bottom:4px; }
   .pkg-card.premium .pkg-price { color:#f0c040; }
   .pkg-price-note { font-size:12px; color:var(--ms-text-secondary); margin-bottom:0; }
-  .pkg-card.premium .pkg-price-note { color:rgba(255,255,255,0.5); }
   .pkg-body { padding:24px 28px; flex:1; display:flex; flex-direction:column; }
   .pkg-desc { font-size:14px; color:var(--ms-text-secondary); line-height:1.7; margin-bottom:20px; }
   .pkg-features { list-style:none; margin-bottom:24px; flex:1; }
@@ -69,13 +79,11 @@
   .pkg-features li::before { content:'✓'; color:var(--ms-green); font-weight:700; font-size:13px; margin-top:1px; flex-shrink:0; }
   .pkg-features li.highlight { font-weight:600; color:var(--ms-text); }
   .pkg-footer { padding:0 28px 28px; }
-
   .photo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
   .photo-card { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--ms-shadow); transition:box-shadow 0.2s,transform 0.2s; }
   .photo-card:hover { box-shadow:var(--ms-shadow-hover); transform:translateY(-3px); }
   .photo-card img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
   .photo-card-label { padding:14px 16px; background:white; border:1px solid var(--ms-border); border-top:none; font-size:14px; font-weight:600; color:var(--ms-text); border-radius:0 0 var(--radius-lg) var(--radius-lg); }
-
   .comparison { background:var(--ms-surface); }
   .comparison-table { width:100%; border-collapse:collapse; margin-top:40px; background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--ms-shadow); }
   .comparison-table th { background:var(--ms-blue); color:white; padding:16px 20px; text-align:left; font-size:14px; font-weight:700; }
@@ -86,13 +94,11 @@
   .comparison-table td:first-child { font-weight:600; color:var(--ms-text); }
   .check { color:var(--ms-green); font-weight:700; font-size:16px; }
   .dash { color:#ccc; }
-
   .cta-banner { background:var(--ms-blue); color:white; padding:64px 32px; text-align:center; }
   .cta-banner h2 { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:12px; }
   .cta-banner p { font-size:17px; color:rgba(255,255,255,0.85); margin-bottom:28px; max-width:560px; margin-left:auto; margin-right:auto; }
   .btn-white { background:white; color:var(--ms-blue); border:none; padding:14px 32px; border-radius:var(--radius); font-size:16px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; font-family:var(--font); }
   .btn-white:hover { background:#e8f3ff; }
-
   footer { background:#0d0d0d; color:rgba(255,255,255,0.8); padding:56px 32px 32px; }
   .footer-inner { max-width:1200px; margin:0 auto; }
   .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:32px; }
@@ -109,29 +115,37 @@
   .footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.35); flex-wrap:wrap; gap:12px; }
   .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
   .footer-bottom-links { display:flex; gap:20px; }
-  @media(max-width:900px){ .nav-links{display:none} .packages-grid,.photo-grid{grid-template-columns:1fr} .footer-top{grid-template-columns:1fr 1fr} section{padding:56px 20px} }
+  @media(max-width:900px){ .nav-links{display:none} .nav-phone{display:none} .hamburger{display:flex} .packages-grid,.photo-grid{grid-template-columns:1fr} .footer-top{grid-template-columns:1fr 1fr} section{padding:56px 20px} }
 </style>
 </head>
 <body>
-
 <div class="topbar">📍 Serving Fort Myers, Naples & Cape Coral &nbsp;|&nbsp; <a href="tel:12399901615">📞 Call or Text: 1-239-990-1615</a> &nbsp;|&nbsp; <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">Book a Free Consultation →</a></div>
-
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about-josh.html">About</a></li>
-      <li><a href="#" class="active">Our Services</a></li>
+      <li><a href="our-services.html" class="active">Our Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <span class="nav-phone">239-990-1615</span>
       <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-phone">📞 239-990-1615</span>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about-josh.html" onclick="closeMenu()">About</a>
+  <a href="our-services.html" onclick="closeMenu()">Our Services</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="mobile-cta">📅 Book Free Consultation</a>
+</div>
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="page-hero-inner">
@@ -145,15 +159,10 @@
     </div>
   </div>
 </div>
-
 <section style="background:#fafafa;">
   <div class="section-inner">
-    <div class="travel-note">
-      🚗 <div><strong>In-Home Concierge Available Everywhere in Southwest Florida</strong> — Fort Myers, Naples, Cape Coral, Bonita Springs & surrounding areas. A flat <strong>$150 travel fee</strong> applies to all in-home visits. We come to you.</div>
-    </div>
+    <div class="travel-note">🚗 <div><strong>In-Home Concierge Available Everywhere in Southwest Florida</strong> — Fort Myers, Naples, Cape Coral, Bonita Springs & surrounding areas. A flat <strong>$150 travel fee</strong> applies to all in-home visits. We come to you.</div></div>
     <div class="packages-grid">
-
-      <!-- ENTRY VAULT -->
       <div class="pkg-card">
         <div class="pkg-header">
           <span class="pkg-icon">🔐</span>
@@ -172,12 +181,8 @@
             <li>Scam awareness & protection training</li>
           </ul>
         </div>
-        <div class="pkg-footer">
-          <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:1.%20The%20Entry%20Vault%20Selection" class="btn-secondary" style="display:block;text-align:center;width:100%;">Book Entry Vault</a>
-        </div>
+        <div class="pkg-footer"><a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:1.%20The%20Entry%20Vault%20Selection" class="btn-secondary" style="display:block;text-align:center;width:100%;">Book Entry Vault</a></div>
       </div>
-
-      <!-- ASSET ESSENTIALS -->
       <div class="pkg-card featured">
         <div class="pkg-header">
           <div class="pkg-badge blue">Most Popular</div>
@@ -199,12 +204,8 @@
             <li>Enhanced security audit & review</li>
           </ul>
         </div>
-        <div class="pkg-footer">
-          <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:2.%20Asset%20Essentials%20Selection" class="btn-primary" style="display:block;text-align:center;width:100%;">Book Asset Essentials</a>
-        </div>
+        <div class="pkg-footer"><a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:2.%20Asset%20Essentials%20Selection" class="btn-primary" style="display:block;text-align:center;width:100%;">Book Asset Essentials</a></div>
       </div>
-
-      <!-- COMPLETE GUARDIAN -->
       <div class="pkg-card premium">
         <div class="pkg-header">
           <div class="pkg-badge gold">Premium</div>
@@ -226,77 +227,61 @@
             <li style="border-color:rgba(255,255,255,0.1);">Step-by-step heir recovery guide</li>
           </ul>
         </div>
-        <div class="pkg-footer">
-          <a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" style="display:block;text-align:center;width:100%;background:#f0c040;color:#1a1a1a;border:none;padding:12px 20px;border-radius:var(--radius);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:background 0.15s;font-family:var(--font);">Book Complete Guardian</a>
-        </div>
+        <div class="pkg-footer"><a href="https://app.acuityscheduling.com/schedule.php?owner=38883925&appointmentType=category:3.%20The%20Complete%20Guardian%20Selection" style="display:block;text-align:center;width:100%;background:#f0c040;color:#1a1a1a;border:none;padding:12px 20px;border-radius:var(--radius);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:background 0.15s;font-family:var(--font);">Book Complete Guardian</a></div>
       </div>
-
     </div>
   </div>
 </section>
-
-<!-- PHOTO GALLERY -->
 <section style="background:white;">
   <div class="section-inner">
     <div class="section-eyebrow">What You'll Receive</div>
     <h2 class="section-title">See the Master Key System in Action</h2>
     <p style="font-size:17px;color:var(--ms-text-secondary);max-width:600px;line-height:1.7;">Every client walks away with a complete, organized, physical security system — not just a setup, but a fortress.</p>
     <div class="photo-grid">
-      <div class="photo-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/2b8f3775-4337-4be8-ae99-2ebf39ad4e37/the+entry+vault.jpg" alt="Entry Vault Master Key Binder" />
-        <div class="photo-card-label">🔐 Entry Vault — Master Key Binder</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/40eb602c-75b5-4aac-a667-7a835c9ebc77/asset+essentials.jpg" alt="Asset Essentials Setup" />
-        <div class="photo-card-label">🛡️ Asset Essentials — Full Setup</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/34a7a9e1-9700-497f-b083-f33567d464d6/the+complete+guardian.jpg" alt="Complete Guardian Legacy Planning" />
-        <div class="photo-card-label">🏰 Complete Guardian — Legacy Plan</div>
-      </div>
+      <div class="photo-card"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/2b8f3775-4337-4be8-ae99-2ebf39ad4e37/the+entry+vault.jpg" alt="Entry Vault Master Key Binder" /><div class="photo-card-label">🔐 Entry Vault — Master Key Binder</div></div>
+      <div class="photo-card"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/40eb602c-75b5-4aac-a667-7a835c9ebc77/asset+essentials.jpg" alt="Asset Essentials Setup" /><div class="photo-card-label">🛡️ Asset Essentials — Full Setup</div></div>
+      <div class="photo-card"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/34a7a9e1-9700-497f-b083-f33567d464d6/the+complete+guardian.jpg" alt="Complete Guardian Legacy Planning" /><div class="photo-card-label">🏰 Complete Guardian — Legacy Plan</div></div>
     </div>
   </div>
 </section>
-
-<!-- COMPARISON TABLE -->
 <section class="comparison">
   <div class="section-inner">
     <div class="section-eyebrow">Side-by-Side Comparison</div>
     <h2 class="section-title">What's Included in Each Package</h2>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Entry Vault<br><span style="font-weight:400;font-size:13px;">$399</span></th>
-          <th>Asset Essentials<br><span style="font-weight:400;font-size:13px;">$549</span></th>
-          <th>Complete Guardian<br><span style="font-weight:400;font-size:13px;">$749</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Master Key Binder</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>1 Crypto Exchange Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Hardware Wallet Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Dedicated Crypto Email</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>2nd Exchange Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Crypto Debit Card Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Tax Tracking App Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Scam Prevention Training</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Emergency Protocol Coaching</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Legacy & Heir Planning</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
-        <tr><td>Estate Documentation</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
-        <tr><td>Family Education Session</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
-        <tr><td>In-Home Option Available</td><td>+$150</td><td>+$150</td><td>+$150</td></tr>
-      </tbody>
-    </table>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Entry Vault<br><span style="font-weight:400;font-size:13px;">$399</span></th>
+            <th>⭐ Asset Essentials<br><span style="font-weight:400;font-size:13px;">$549</span></th>
+            <th>Complete Guardian<br><span style="font-weight:400;font-size:13px;">$749</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Master Key Binder</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>1 Crypto Exchange Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Hardware Wallet Setup</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Dedicated Crypto Email</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>2nd Exchange Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Crypto Debit Card Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Tax Tracking App Setup</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Scam Prevention Training</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Emergency Protocol Coaching</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Legacy & Heir Planning</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Estate Documentation</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Family Education Session</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>In-Home Option Available</td><td>+$150</td><td>+$150</td><td>+$150</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
-
 <div class="cta-banner">
   <h2>Not Sure Which Package Is Right for You?</h2>
   <p>Book a free 15-minute strategy call and we'll walk you through exactly which package fits your situation and goals.</p>
   <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-white">Book Your Free 15-Min Call</a>
 </div>
-
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -312,9 +297,9 @@
       <div>
         <div class="footer-col-title">Services</div>
         <ul class="footer-links">
-          <li><a href="#entry-vault">Entry Vault — $399</a></li>
-          <li><a href="#asset-essentials">Asset Essentials — $549</a></li>
-          <li><a href="#complete-guardian">Complete Guardian — $749</a></li>
+          <li><a href="our-services.html">Entry Vault — $399</a></li>
+          <li><a href="our-services.html">Asset Essentials — $549</a></li>
+          <li><a href="our-services.html">Complete Guardian — $749</a></li>
         </ul>
       </div>
       <div>
@@ -322,6 +307,7 @@
         <ul class="footer-links">
           <li><a href="about-josh.html">About Crypto Josh</a></li>
           <li><a href="our-services.html">All Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
@@ -339,41 +325,26 @@
     </div>
     <div class="footer-bottom">
       <div>© 2025 Florida Crypto Edu LLC. All rights reserved. Not a financial advisor. <a href="disclaimer.html">Disclaimer</a></div>
-      <div class="footer-bottom-links">
-        <a href="disclaimer.html">Privacy Policy</a>
-        <a href="disclaimer.html">Terms of Service</a>
-        <a href="disclaimer.html">Return Policy</a>
-      </div>
+      <div class="footer-bottom-links"><a href="disclaimer.html">Privacy Policy</a><a href="disclaimer.html">Terms of Service</a><a href="disclaimer.html">Return Policy</a></div>
     </div>
   </div>
 </footer>
-<!-- COOKIE CONSENT BANNER -->
 <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:rgba(255,255,255,0.9);padding:16px 24px;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-family:var(--font);">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <div style="flex:1;min-width:250px;">
-      <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;">🍪 We use cookies to improve your experience on our site. By continuing to browse, you agree to our <a href="disclaimer.html" style="color:#50aeff;text-decoration:underline;">Privacy Policy</a>.</p>
-    </div>
+    <div style="flex:1;min-width:250px;"><p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;">🍪 We use cookies to improve your experience on our site. By continuing to browse, you agree to our <a href="disclaimer.html" style="color:#50aeff;text-decoration:underline;">Privacy Policy</a>.</p></div>
     <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Accept</button>
-      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background 0.15s;">Decline</button>
+      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;">Decline</button>
     </div>
   </div>
 </div>
 <script>
-  function acceptCookies() {
-    document.getElementById('cookieBanner').style.display = 'none';
-    try { localStorage.setItem('cookieConsent', 'accepted'); } catch(e) {}
-  }
-  function declineCookies() {
-    document.getElementById('cookieBanner').style.display = 'none';
-    try { localStorage.setItem('cookieConsent', 'declined'); } catch(e) {}
-  }
-  (function() {
-    try {
-      var consent = localStorage.getItem('cookieConsent');
-      if (!consent) { document.getElementById('cookieBanner').style.display = 'block'; }
-    } catch(e) { document.getElementById('cookieBanner').style.display = 'block'; }
-  })();
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
+  document.addEventListener('click', function(e) { const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger'); if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))closeMenu(); });
+  function acceptCookies() { document.getElementById('cookieBanner').style.display='none'; try{localStorage.setItem('cookieConsent','accepted');}catch(e){} }
+  function declineCookies() { document.getElementById('cookieBanner').style.display='none'; try{localStorage.setItem('cookieConsent','declined');}catch(e){} }
+  (function(){ try{ if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieBanner').style.display='block'; }catch(e){ document.getElementById('cookieBanner').style.display='block'; } })();
 </script>
 </body>
 </html>
