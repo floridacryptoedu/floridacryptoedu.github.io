@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Impersonation Scams: When the IRS or SEC Demands Crypto | Florida Crypto Edu</title>
+<meta name="description" content="Real government agencies will never demand payment in cryptocurrency. Here is exactly how these scams unfold and what to do if you are targeted.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ms-blue:#0078d4;--ms-blue-dark:#005a9e;--ms-navy:#003366;--ms-surface:#f3f3f3;--ms-white:#ffffff;--ms-text:#1a1a1a;--ms-text-secondary:#444444;--ms-border:#e0e0e0;--ms-shadow:0 2px 8px rgba(0,0,0,0.08);--radius:4px;--radius-lg:8px;--font:'Plus Jakarta Sans','Segoe UI',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:var(--font);color:var(--ms-text);background:var(--ms-white);line-height:1.6;overflow-x:hidden;}
+  .topbar{background:var(--ms-navy);color:white;padding:7px 0;font-size:13px;text-align:center;}.topbar a{color:#90c8f6;text-decoration:none;}
+  nav{background:var(--ms-white);border-bottom:1px solid var(--ms-border);position:sticky;top:0;z-index:1000;box-shadow:var(--ms-shadow);}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;height:60px;}
+  .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:40px;}.nav-logo img{height:40px;width:auto;}
+  .nav-links{display:flex;align-items:center;gap:2px;flex:1;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--ms-text-secondary);font-size:14px;font-weight:500;padding:8px 14px;border-radius:var(--radius);transition:background 0.15s,color 0.15s;display:block;}
+  .nav-links a:hover,.nav-links a.active{background:var(--ms-surface);color:var(--ms-blue);}
+  .nav-cta{margin-left:auto;display:flex;align-items:center;gap:12px;}
+  .nav-phone{font-size:13px;font-weight:600;color:var(--ms-text-secondary);}
+  .btn-primary{background:var(--ms-blue);color:white;border:none;padding:9px 20px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.15s;font-family:var(--font);}
+  .btn-primary:hover{background:var(--ms-blue-dark);}
+  .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;border-radius:var(--radius);margin-left:12px;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--ms-text);border-radius:2px;transition:all 0.3s ease;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}.hamburger.open span:nth-child(2){opacity:0;}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:white;border-bottom:2px solid var(--ms-blue);box-shadow:0 8px 24px rgba(0,0,0,0.12);z-index:999;padding:16px 0;}
+  .mobile-menu.open{display:block;}.mobile-menu a{display:block;padding:13px 28px;font-size:15px;font-weight:600;color:var(--ms-text);text-decoration:none;border-bottom:1px solid var(--ms-border);}
+  .mobile-menu a:last-child{border-bottom:none;}.mobile-menu .mobile-cta{margin:16px 20px 8px;display:block;background:var(--ms-blue);color:white !important;text-align:center;padding:13px 20px;border-radius:var(--radius);font-size:15px;font-weight:700;border-bottom:none !important;}
+  .mobile-menu .mobile-phone{display:block;text-align:center;padding:10px 28px 4px;font-size:14px;color:var(--ms-text-secondary) !important;font-weight:600;border-bottom:none !important;}
+  .post-hero{background:linear-gradient(135deg,#001f4d 0%,#003580 50%,#0078d4 100%);color:white;padding:64px 32px;}
+  .post-hero-inner{max-width:860px;margin:0 auto;}
+  .post-category{display:inline-block;background:#cc0000;color:white;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:2px;margin-bottom:16px;}
+  .post-hero h1{font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;}
+  .post-meta{font-size:13px;color:rgba(255,255,255,0.6);}
+  .post-body{max-width:860px;margin:0 auto;padding:56px 32px;}
+  .post-body h2{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin:36px 0 16px;color:var(--ms-text);}
+  .post-body p{font-size:16px;color:var(--ms-text-secondary);line-height:1.8;margin-bottom:18px;}
+  .post-body strong{color:var(--ms-text);font-weight:700;}
+  .post-cta{background:linear-gradient(135deg,#001f4d,#0078d4);color:white;padding:48px 32px;text-align:center;margin-top:48px;border-radius:var(--radius-lg);}
+  .post-cta h3{font-size:24px;font-weight:800;margin-bottom:12px;}.post-cta p{font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--ms-blue);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:32px;}.back-link:hover{text-decoration:underline;}
+  footer{background:#0d0d0d;color:rgba(255,255,255,0.8);padding:40px 32px;}
+  .footer-inner{max-width:1200px;margin:0 auto;}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px;}
+  .footer-logo{display:flex;margin-bottom:16px;text-decoration:none;}.footer-logo img{height:36px;width:auto;border-radius:4px;}
+  .footer-brand-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.55);margin-bottom:20px;}
+  .footer-socials{display:flex;gap:10px;}
+  .footer-social{width:34px;height:34px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;transition:background 0.15s;}
+  .footer-social:hover{background:var(--ms-blue);color:white;border-color:var(--ms-blue);}
+  .footer-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;transition:color 0.15s;}
+  .footer-links a:hover{color:white;}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.35);flex-wrap:wrap;gap:12px;}
+  .footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;}
+  .footer-bottom-links{display:flex;gap:20px;}
+  @media(max-width:900px){.nav-links{display:none;}.nav-phone{display:none;}.hamburger{display:flex;}.post-body{padding:40px 20px;}.footer-top{grid-template-columns:1fr 1fr;}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4EJ452BRR5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4EJ452BRR5');</script>
+</head>
+<body>
+<div class="topbar">📍 Serving Fort Myers, Naples & Cape Coral &nbsp;|&nbsp; <a href="tel:12399901615">📞 1-239-990-1615</a> &nbsp;|&nbsp; <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">Book a Free Consultation →</a></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-josh.html">About</a></li>
+      <li><a href="our-services.html">Our Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">239-990-1615</span>
+      <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary">Free Consultation</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-phone">📞 239-990-1615</span>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about-josh.html" onclick="closeMenu()">About</a>
+  <a href="our-services.html" onclick="closeMenu()">Our Services</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="mobile-cta">📅 Book Free Consultation</a>
+</div>
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-category">Scam Warnings</span>
+    <h1>Government Impersonation Scams: When the IRS or SEC Demands Crypto</h1>
+    <div class="post-meta">By Crypto Josh &nbsp;·&nbsp; 2026-06-21 &nbsp;·&nbsp; Florida Crypto Edu</div>
+  </div>
+</div>
+<div class="post-body">
+  <a href="blog.html" class="back-link">← Back to Blog</a>
+  <p>The call comes in the middle of the afternoon. The caller ID shows a Washington D.C. area code. The person on the line introduces themselves as an IRS agent or SEC investigator. They tell you that your crypto wallet has been flagged for suspicious activity, that you owe back taxes that must be paid immediately, or that you are the target of a criminal investigation that you can resolve right now by transferring funds.</p>
+  <p>This is a scam. Let us be absolutely clear: <strong>no legitimate government agency will ever demand payment in cryptocurrency.</strong></p>
+  <h2>How Government Impersonation Scams Work</h2>
+  <p>These fraudsters are highly sophisticated. They use spoofed caller ID numbers that display as legitimate government agencies. They have access to publicly available personal data — your name, address, sometimes even partial Social Security numbers — which makes them sound credible. They create extreme urgency: pay within the hour or face arrest, asset seizure, or deportation.</p>
+  <p>The crypto element is central to these scams because crypto payments are irreversible and largely untraceable. They direct victims to specific Bitcoin ATMs or direct wallet transfers, walking them through the process in real time to prevent second-guessing. Once the transfer is made the money is gone and the perpetrators disappear.</p>
+  <h2>The Specific Agencies Being Impersonated</h2>
+  <p>The IRS is the most commonly impersonated, usually claiming unpaid taxes or crypto reporting violations. The SEC and CFTC are impersonated in investment fraud scenarios. Local police and the Florida Department of Law Enforcement are also used. Recently we have seen Medicare and Social Security Administration impersonation specifically targeting elderly residents in Southwest Florida.</p>
+  <h2>What to Do If You Receive One of These Calls</h2>
+  <p>Hang up immediately. Do not engage with the caller, do not press buttons, do not provide any information. If you are concerned that there may be a legitimate issue with your taxes or investments hang up and call the agency directly using a phone number you find on the official government website — not a number the caller provides.</p>
+  <p>If someone pressured you into making a crypto payment before you could verify their legitimacy call us immediately at 239-990-1615. Time is a factor in documenting these incidents and taking any available protective steps. We also educate all of our clients on how to identify and deflect government impersonation attempts as part of our security packages.</p>
+  <div class="post-cta">
+    <h3>Protect Your Crypto Before It Is Too Late</h3>
+    <p>Book a free 15-minute strategy call with Crypto Josh and find out exactly how to secure your digital assets in Southwest Florida.</p>
+    <a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations" class="btn-primary" style="font-size:15px;padding:13px 28px;">📅 Book Your Free Call</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-logo"><img src="https://images.squarespace-cdn.com/content/v1/69c537fa2d5ede77e7e781a1/d16c98d0-ce07-465a-a06c-c8424c77f005/florida+crypto+edu+logo.jpg?format=300w" alt="Florida Crypto Edu" /></a>
+        <p class="footer-brand-desc">Southwest Florida's only hands-on crypto security concierge. Protecting Fort Myers and Naples residents from the billions lost to crypto fraud every year.</p>
+        <div class="footer-socials">
+          <a href="http://www.linkedin.com/in/floridacryptoedu" class="footer-social">in</a>
+          <a href="https://www.youtube.com/@CryptoJoshFL" class="footer-social">▶</a>
+          <a href="https://www.facebook.com/profile.php?id=61589618993895" class="footer-social">f</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="our-services.html">Entry Vault — $399</a></li>
+          <li><a href="our-services.html">Asset Essentials — $549</a></li>
+          <li><a href="our-services.html">Complete Guardian — $749</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about-josh.html">About Josh</a></li>
+          <li><a href="our-services.html">All Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:12399901615">📞 1-239-990-1615</a></li>
+          <li><a href="mailto:joshua@floridacryptoedu.com">✉ joshua@floridacryptoedu.com</a></li>
+          <li><a href="mailto:admin@floridacryptoedu.com">✉ admin@floridacryptoedu.com</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;">📍 Downtown Fort Myers, FL</li>
+          <li><a href="https://app.acuityscheduling.com/schedule/050896aa/?categories[]=4.%20Complimentary%20Security%20Consultations">📅 Book Free Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Florida Crypto Edu LLC. All rights reserved. Not a financial advisor. <a href="disclaimer.html">Disclaimer</a></div>
+      <div class="footer-bottom-links"><a href="disclaimer.html">Privacy Policy</a><a href="disclaimer.html">Terms of Service</a><a href="disclaimer.html">Return Policy</a></div>
+    </div>
+  </div>
+</footer>
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:rgba(255,255,255,0.9);padding:16px 24px;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.2);font-family:var(--font);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:250px;"><p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;">🍪 We use cookies to improve your experience. <a href="disclaimer.html" style="color:#50aeff;">Privacy Policy</a></p></div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="acceptCookies()" style="background:#0078d4;color:white;border:none;padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open');}
+  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');}
+  document.addEventListener('click',function(e){const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))closeMenu();});
+  function acceptCookies(){document.getElementById('cookieBanner').style.display='none';try{localStorage.setItem('cookieConsent','accepted');}catch(e){}}
+  function declineCookies(){document.getElementById('cookieBanner').style.display='none';try{localStorage.setItem('cookieConsent','declined');}catch(e){}}
+  (function(){try{if(!localStorage.getItem('cookieConsent'))document.getElementById('cookieBanner').style.display='block';}catch(e){document.getElementById('cookieBanner').style.display='block';}})();
+</script>
+</body>
+</html>
